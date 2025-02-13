@@ -1,0 +1,27 @@
+# ninja log v5
+88	348	7611748805554574	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c.obj	c598b974c634b6ff
+26	686	7611748808711251	CMakeFiles/faderbay.dir/Core/Src/stm32f4xx_it.c.obj	6380ff3160c092fb
+39	692	7611748808699087	CMakeFiles/faderbay.dir/Core/Src/stm32f4xx_hal_msp.c.obj	f06e18b57f18e52a
+11	701	7611748808906252	CMakeFiles/faderbay.dir/Core/Src/main.c.obj	dc13299de1c022d5
+55	711	7611748809034456	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c.obj	9ec94423e0f63be0
+72	721	7611748809054518	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c.obj	a5b9020be0ee36e2
+101	763	7611748809411695	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj	1aa698043fc4351f
+108	773	7611748809467218	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj	db4441db1741b50c
+123	784	7611748809628042	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj	db8e7a8be57243f5
+118	822	7611748809900390	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj	3434ca76e1a36bf7
+349	1203	7611748814029520	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj	34dac1a8f945679a
+721	1389	7611748815993351	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj	4ab5cbcc2ad1de18
+687	1410	7611748816087402	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj	5497bef0afbd427
+711	1442	7611748816226076	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj	ed2f105aebbe4389
+693	1517	7611748816394989	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj	ec2769f724f20c0b
+784	1559	7611748817233648	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj	71a680e0c4462764
+701	1581	7611748817580302	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj	ea708e71cb656615
+764	1599	7611748817560244	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj	b7ac58be961cab49
+773	1632	7611748818032775	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj	a213077912c9e881
+1517	1801	7611748820053020	CMakeFiles/faderbay.dir/startup_stm32f411xe.s.obj	212f47b069253273
+1410	1808	7611748820147101	CMakeFiles/faderbay.dir/Core/Src/sysmem.c.obj	b706c7bbb1aef550
+1442	1920	7611748821356416	CMakeFiles/faderbay.dir/Core/Src/syscalls.c.obj	c41114e3bfd88754
+1390	1993	7611748822146867	CMakeFiles/faderbay.dir/Core/Src/system_stm32f4xx.c.obj	4ad7587571287ea4
+1203	2009	7611748822288418	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj	67801aff371260f2
+822	2042	7611748822602276	CMakeFiles/faderbay.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj	986a812cd6659f90
+2043	2387	7611748825521672	faderbay.elf	8632585aa3c58342
