@@ -14,7 +14,7 @@ typedef struct {
     Button_t buttons[NUM_BUTTONS];
     Encoder_t encoder;
 
-} device_t;
+} Device_t;
 
 /* PROTOTYPES */
 

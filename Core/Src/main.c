@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "device.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +45,7 @@ ADC_HandleTypeDef hadc1;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-
+Device_t device;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
