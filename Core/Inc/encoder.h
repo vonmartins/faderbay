@@ -30,8 +30,7 @@ void Encoder_Init(Encoder_t *encoder, TIM_HandleTypeDef *htim, uint8_t name);
 int32_t Encoder_GetPosition(Encoder_t *encoder);
 void Encoder_SetPosition(Encoder_t *encoder, int32_t position);
 uint8_t Encoder_UpdatePosition(Encoder_t *encoder);
-void Set_Faders_On();  /* Set LOW MUX1_INH and MUX2_INH pins */
-void Set_Faders_Off();  /* Set HIGH MUX1_INH and MUX2_INH pins */
+
 
 
 #endif 

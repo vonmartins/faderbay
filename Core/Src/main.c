@@ -54,7 +54,7 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-
+void Device_Init();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -94,7 +94,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  Device_Init(&device);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -104,6 +104,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    UI_Poll(&device);
   }
   /* USER CODE END 3 */
 }
@@ -323,7 +324,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void Device_Init(Device_t *device)
+{
+  UI_Init(&device);
+}
 /* USER CODE END 4 */
 
 /**

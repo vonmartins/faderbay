@@ -1,6 +1,7 @@
 #include "fader.h"
 #include "encoder.h"
 #include "button.h"
+#include "UI.h"
 
 /* DEFINES */
 
@@ -13,10 +14,13 @@ typedef struct {
     Fader_t faders[NUM_FADERS];
     Button_t buttons[NUM_BUTTONS];
     Encoder_t encoder;
+    uint8_t active_fader;
+    uint8_t active_button;
 
 } Device_t;
 
 /* PROTOTYPES */
 
-
+void Process_Fader(Device_t *device);
+void Process_Button(Device_t *device);
 

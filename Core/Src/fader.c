@@ -3,15 +3,42 @@
 #include <stdint.h>
 #include "fader.h"
 #include "app_config.h"
+#include "UI.h"
 #include "stm32f4xx_hal_adc.h"
 
 
 /* VARIABLES */
 
-extern ADC_HandleTypeDef hadc1;
 
 
 /* API */
+
+void Select_Mux(uint8_t mux, uint8_t channel)
+{
+    if (channel > 7) return;
+
+    if (mux == MUX1)
+    {
+        HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
+
+        HAL_GPIO_WritePin(MUX1_S0_GPIO_Port, MUX1_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX1_S1_GPIO_Port, MUX1_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX1_S2_GPIO_Port, MUX1_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    }
+    else if (mux == MUX2)
+    {
+        HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
+
+        HAL_GPIO_WritePin(MUX2_S0_GPIO_Port, MUX2_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX2_S1_GPIO_Port, MUX2_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(MUX2_S2_GPIO_Port, MUX2_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    }
+
+    HAL_Delay(1); /* Wait for mux select */
+}
+
 
 void Smooth_Fader(Fader_t *fader)
 {
@@ -21,42 +48,48 @@ void Smooth_Fader(Fader_t *fader)
     );
 }
 
-/* Return fader changed or -1 if no fader changed */
-int8_t Faders_Update(Fader_t *faders)
+
+uint16_t Faders_Get_Raw_Value(Fader_t *faders, uint8_t fader)
 {
-    int8_t changed_fader = -1;
-
-    for (uint8_t i = 0; i < NUM_FADERS; i++)
-    {
-        uint8_t mux = Get_Mux(i);       // Obtener qué MUX usar (0 o 1)
-        uint8_t select = Get_Select(i); // Obtener canal dentro del MUX (0-7)
-
-        // Seleccionar canal en el MUX
-        MUX_SelectChannel(select);
-        HAL_Delay(1);  // Pequeña espera para estabilizar
-
-        // Choose ADC
-        uint32_t raw_value;
-        if (mux == MUX1)
-        {
-            HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-            raw_value = HAL_ADC_GetValue(&hadc1);
-        }
-        else
-        {
-            HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
-            raw_value = HAL_ADC_GetValue(&hadc2);
-        }
-
-        // If value changed
-        if (faders[i].raw_value != raw_value)
-        {
-            faders[i].raw_value = raw_value;
-            Smooth_Fader(&faders[i]);
-            changed_fader = i;
-        }
+    if (fader >= NUM_FADERS) {
+        return 0; // O un valor de error
     }
-    return changed_fader;  // -1 si ningún fader cambió
-}
-HAL_ADC_PollForConversi
 
+    ADC_HandleTypeDef *hadc = faders[fader].hadc;
+
+    if (hadc == NULL) {
+        return 0; 
+    }
+
+    Select_Mux(faders[fader].mux, faders[fader].mux_channel);
+    HAL_Delay(1);
+
+    HAL_ADC_Start(hadc);
+
+    if (HAL_ADC_PollForConversion(hadc, 10) != HAL_OK) {
+        return 0; 
+    }
+
+    return HAL_ADC_GetValue(hadc);
+}
+
+
+uint8_t Faders_Get_Smooth_Value(Fader_t *faders, uint8_t fader)
+{
+    Smooth_Fader(&faders[fader]);
+    return faders[fader].smooth_value;
+}
+
+
+
+void Set_Faders_On()  /* Set LOW MUX1_INH and MUX2_INH pins */
+{
+    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
+}
+
+void Set_Faders_Off()  /* Set HIGH MUX1_INH and MUX2_INH pins */
+{
+    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
+}

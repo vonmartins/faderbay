@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "encoder.h": "c",
+        "app_config.h": "c"
+    }
+}
