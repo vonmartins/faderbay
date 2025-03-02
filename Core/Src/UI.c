@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include "fader.h"
-#include "button.h"
-#include "encoder.h"
-#include "device.h"
-#include "app_config.h"
+#include "UI.h"
 #include "main.h"
+#include "stm32f411xe.h"
+
 
 
 /* VARIABLES */
@@ -68,10 +66,10 @@ int8_t Faders_Update(Fader_t *faders)
 {
     for (uint8_t i = 0; i < NUM_FADERS; i++)
     {
-        uint32_t raw_value = Faders_Get_Raw_Value(faders, i);
-        if (faders[i].raw_value != raw_value)
+        uint32_t raw = Faders_Get_Raw_Value(faders, i);
+        if (faders[i].raw_value != raw)
         {
-            faders[i].raw_value = raw_value;
+            faders[i].raw_value = raw;
             Smooth_Fader(&faders[i]);
             return i; 
         }

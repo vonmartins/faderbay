@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "encoder.h": "c",
-        "app_config.h": "c"
+        "main.h": "c",
+        "stm32f4xx_hal_adc.h": "c",
+        "stm32f411xe.h": "c"
     }
 }

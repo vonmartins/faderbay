@@ -1,7 +1,11 @@
+#ifndef DEVICE_H
+#define DEVICE_H
+
+
 #include "fader.h"
 #include "encoder.h"
 #include "button.h"
-#include "UI.h"
+
 
 /* DEFINES */
 
@@ -19,8 +23,10 @@ typedef struct {
 
 } Device_t;
 
+
 /* PROTOTYPES */
 
 void Process_Fader(Device_t *device);
 void Process_Button(Device_t *device);
 
+#endif

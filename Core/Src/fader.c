@@ -1,10 +1,11 @@
 /* Fader API (Read, MUX, etc) */
 
-#include <stdint.h>
+
 #include "fader.h"
 #include "app_config.h"
-#include "UI.h"
-#include "stm32f4xx_hal_adc.h"
+
+//#include "UI.h"
+//#include "stm32f4xx_hal_adc.h"
 
 
 /* VARIABLES */
@@ -13,31 +14,31 @@
 
 /* API */
 
-void Select_Mux(uint8_t mux, uint8_t channel)
-{
-    if (channel > 7) return;
+// void Select_Mux(uint8_t mux, uint8_t channel)
+// {
+//     if (channel > 7) return;
 
-    if (mux == MUX1)
-    {
-        HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
+//     if (mux == MUX1)
+//     {
+//         HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
 
-        HAL_GPIO_WritePin(MUX1_S0_GPIO_Port, MUX1_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX1_S1_GPIO_Port, MUX1_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX1_S2_GPIO_Port, MUX1_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    }
-    else if (mux == MUX2)
-    {
-        HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
+//         HAL_GPIO_WritePin(MUX1_S0_GPIO_Port, MUX1_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX1_S1_GPIO_Port, MUX1_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX1_S2_GPIO_Port, MUX1_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//     }
+//     else if (mux == MUX2)
+//     {
+//         HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
 
-        HAL_GPIO_WritePin(MUX2_S0_GPIO_Port, MUX2_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX2_S1_GPIO_Port, MUX2_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(MUX2_S2_GPIO_Port, MUX2_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    }
+//         HAL_GPIO_WritePin(MUX2_S0_GPIO_Port, MUX2_S0_Pin, (channel & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX2_S1_GPIO_Port, MUX2_S1_Pin, (channel & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//         HAL_GPIO_WritePin(MUX2_S2_GPIO_Port, MUX2_S2_Pin, (channel & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//     }
 
-    HAL_Delay(1); /* Wait for mux select */
-}
+//     HAL_Delay(1); /* Wait for mux select */
+// }
 
 
 void Smooth_Fader(Fader_t *fader)
@@ -81,15 +82,14 @@ uint8_t Faders_Get_Smooth_Value(Fader_t *faders, uint8_t fader)
 }
 
 
+// void Set_Faders_On()  /* Set LOW MUX1_INH and MUX2_INH pins */
+// {
+//     HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
+//     HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
+// }
 
-void Set_Faders_On()  /* Set LOW MUX1_INH and MUX2_INH pins */
-{
-    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
-}
-
-void Set_Faders_Off()  /* Set HIGH MUX1_INH and MUX2_INH pins */
-{
-    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
-}
+// void Set_Faders_Off()  /* Set HIGH MUX1_INH and MUX2_INH pins */
+// {
+//     HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
+//     HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
+// }

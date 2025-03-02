@@ -1,0 +1,5 @@
+C:/Users/marti/Desktop/ELECTRONICA/Local Repos/faderbay/CMakeFiles/faderbay.dir
+C:/Users/marti/Desktop/ELECTRONICA/Local Repos/faderbay/CMakeFiles/edit_cache.dir
+C:/Users/marti/Desktop/ELECTRONICA/Local Repos/faderbay/CMakeFiles/rebuild_cache.dir
+C:/Users/marti/Desktop/ELECTRONICA/Local Repos/faderbay/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+C:/Users/marti/Desktop/ELECTRONICA/Local Repos/faderbay/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir

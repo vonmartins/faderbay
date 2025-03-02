@@ -2,7 +2,7 @@
 #define MUX_H
 
 #include <stdint.h>
-#include "stm32f4xx_hal_gpio.h"
+//#include "stm32f4xx_hal_gpio.h"
 #include "main.h"
 
 

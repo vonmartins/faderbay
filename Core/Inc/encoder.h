@@ -4,7 +4,7 @@
 #define ENCODER_H
 
 #include <stdint.h>
-#include "stm32f4xx_hal_tim.h"
+#include "stm32f4xx_hal.h"
 
 /* DEFINES */
 

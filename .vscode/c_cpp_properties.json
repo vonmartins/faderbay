@@ -1,48 +1,22 @@
-/* {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/Core/Inc"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compileCommands": [
-                "${workspaceFolder}/build/Debug/compile_commands.json"
-            ]
-        }
-    ],
-    "version": 4
-} */
-
 {
+    "version": 4,
     "configurations": [
         {
             "name": "STM32",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "intelliSenseMode": "${default}",
             "includePath": [
-                "${workspaceFolder}/**",
+                "${default}",
                 "${workspaceFolder}/Core/Inc",
-                "C:/Development/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include",
-                "C:/Development/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/arm-none-eabi/include",
-                "C:/Development/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include-fixed"
+                "${workspaceFolder}/",
+                "${workspaceFolder}/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "${workspaceFolder}/Drivers/CMSIS/Include",
+                "C:/Program Files/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include",
+                "C:/Program Files/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include",
+                "C:/Program Files/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include-fixed"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "STM32F407xx",
-                "USE_HAL_DRIVER"
-            ],
-            "compilerPath": "C:/Development/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-arm",
-            "compileCommands": "${workspaceFolder}/build/Debug/compile_commands.json"
+            "compilerPath": "C:/Program Files/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe"
         }
-    ],
-    "version": 4
+    ]
 }
