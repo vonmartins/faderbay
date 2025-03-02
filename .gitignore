@@ -1,2 +1,8 @@
+*
 build/
 .vscode/
+!Apps/
+!Core/
+!README.md
+!Estructura_Codigo.md
+!faderbay.ioc
