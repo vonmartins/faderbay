@@ -8,10 +8,10 @@
 
 /* DEFINES */
 
-#define BUTTON_1    0
-#define BUTTON_2    1
-#define BUTTON_3    2
-#define BUTTON_4    3
+#define BUTTON_MODE     0
+#define BUTTON_CONF     1
+#define BUTTON_UP       2
+#define BUTTON_DOWN     3
 
 #define NUM_BUTTONS     4
 
