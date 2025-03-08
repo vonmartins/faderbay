@@ -25,6 +25,7 @@
 #include "UI.h"
 #include "string.h"
 #include "cli_fns.h"
+#include "flash.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +54,7 @@ UART_HandleTypeDef huart1;
 Device_t device;
 cli_t cli; 
 uint8_t rx_buffer;
+Flash_Write_Block_t device_config_block;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -364,7 +366,14 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void Device_Init(Device_t *device)
 {
+  /* UI Init */
   UI_Init(device);
+
+  /* Reading from Flash */
+  Flash_Read_Configs(&device_config_block);
+  memcpy(device->current_presets, device_config_block.current_presets, sizeof(device_config_block.current_presets));
+  memcpy(&device->current_config, &device_config_block.current_config, sizeof(device_config_block.current_config));
+  
 }
 
 void user_uart_println(char *string)

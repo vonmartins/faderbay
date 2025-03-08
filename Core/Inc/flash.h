@@ -20,5 +20,7 @@ typedef struct {
 
 uint8_t Flash_Write_Configs(Flash_Write_Block_t *block_data);
 void Flash_Read_Configs(Flash_Write_Block_t *block_data);
+uint8_t Write_Presets(Preset_t *presets);
+uint8_t Write_Configs(Config_t *configs);
 
 #endif

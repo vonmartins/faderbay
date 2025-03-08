@@ -1,5 +1,7 @@
 #include "flash.h"
-#include "stm32f4xx_hal.h"
+#include "main.h"
+#include <string.h>
+//#include "stm32f4xx_hal.h"
 #include <stdint.h>
 
 
@@ -42,4 +44,16 @@ void Flash_Read_Configs(Flash_Write_Block_t *block_data)
     for (uint32_t i = 0; i < sizeof(Flash_Write_Block_t); i++) {
         dest[i] = src[i];
     }
+}
+
+uint8_t Write_Presets(Preset_t *presets)
+{
+    memcpy(device_config_block.current_presets, presets, sizeof(device_config_block.current_presets));
+    return Flash_Write_Configs(&device_config_block);
+}
+
+uint8_t Write_Configs(Config_t *configs)
+{
+    memcpy(&device_config_block.current_config, configs, sizeof(device_config_block.current_config));
+    return Flash_Write_Configs(&device_config_block);
 }

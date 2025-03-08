@@ -3,6 +3,7 @@
 #include "device.h"
 
 
+
 /* API */
 
 void Process_Fader(Device_t *device)

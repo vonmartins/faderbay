@@ -31,12 +31,13 @@ extern "C" {
 #include "C:\Development\Repos\faderbay\Apps\cli\cli.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "flash.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 extern cli_t cli; 
+extern Flash_Write_Block_t device_config_block;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

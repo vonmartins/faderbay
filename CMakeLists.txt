@@ -52,6 +52,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/UI.c
     Apps/cli/cli.c
     Core/Src/cli_fns.c
+    Core/Src/flash.c
 )
 
 # Add include paths
