@@ -86,28 +86,28 @@ void Encoders_Init(Encoder_t *encoder)
 
 
 
-void UI_Init(Device_t *device)
+void UI_Init(UI_Handle_t *UI)
 {
-    Buttons_Init(device->buttons);
-    Faders_Init(device->faders);
+    Buttons_Init(UI->buttons);
+    Faders_Init(UI->faders);
     //Encoders_Init(&device->encoder);
 
 }
 
 
-void UI_Poll(Device_t *device) {
+void UI_Poll(UI_Handle_t *UI) {
     // Poll Buttons
-    int8_t button_pressed = Buttons_Update(device->buttons);
+    int8_t button_pressed = Buttons_Update(UI->buttons);
     if (button_pressed != -1) {
-        device->active_button = (uint8_t)button_pressed;
-        Process_Button(device);
+        UI->active_button = (uint8_t)button_pressed;
+        Process_Button(UI->buttons);
     }
 
     // Poll Faders
-    int8_t fader_changed = Faders_Update(device->faders);
+    int8_t fader_changed = Faders_Update(UI->faders);
     if (fader_changed != -1) {
-        device->active_fader = (uint8_t)fader_changed;
-        Process_Fader(device);
+        UI->active_fader = (uint8_t)fader_changed;
+        Process_Fader(UI->faders);
     }
 
     // Poll Encoder

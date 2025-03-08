@@ -57,3 +57,14 @@ uint8_t Write_Configs(Config_t *configs)
     memcpy(&device_config_block.current_config, configs, sizeof(device_config_block.current_config));
     return Flash_Write_Configs(&device_config_block);
 }
+
+uint8_t Is_First_Initialization()
+{
+    uint8_t flash_value = *(volatile uint8_t*)FLASH_CONFIGS_START;
+
+    if (flash_value == 0xFF) {
+        return 1; 
+    } else {
+        return 0; 
+    }
+}

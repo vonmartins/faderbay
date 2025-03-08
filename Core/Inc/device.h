@@ -2,10 +2,8 @@
 #define DEVICE_H
 
 
-#include "fader.h"
-#include "encoder.h"
-#include "button.h"
 #include "config.h"
+#include "UI.h"
 
 
 /* DEFINES */
@@ -26,11 +24,7 @@ typedef struct {
 
 typedef struct {
     /* UI */
-    Fader_t faders[NUM_FADERS];
-    Button_t buttons[NUM_BUTTONS];
-    Encoder_t encoder;
-    uint8_t active_fader;
-    uint8_t active_button;
+    UI_Handle_t UI;
 
     /* Configs */
     Preset_t current_presets[NUM_PRESETS];
@@ -44,7 +38,7 @@ typedef struct {
 
 /* PROTOTYPES */
 
-void Process_Fader(Device_t *device);
-void Process_Button(Device_t *device);
+void Process_Fader(Fader_t *fader);
+void Process_Button(Button_t *button);
 
 #endif

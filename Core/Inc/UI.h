@@ -1,7 +1,6 @@
 #ifndef UI_H
 #define UI_H
 
-#include "device.h"
 #include "fader.h"
 #include "button.h"
 #include "encoder.h"
@@ -17,7 +16,13 @@
 #define NUM_BUTTONS     4
 
 
-
+typedef struct {
+    Fader_t faders[NUM_FADERS];
+    Button_t buttons[NUM_BUTTONS];
+    Encoder_t encoder;
+    uint8_t active_fader;
+    uint8_t active_button;
+} UI_Handle_t;
 
 
 /* FNS PROTOTYPES */
@@ -32,8 +37,8 @@ int8_t Faders_Update(Fader_t *faders);
 void Encoders_Init(Encoder_t *encoder);
 
 
-void UI_Init(Device_t *device);
-void UI_Poll(Device_t *device);
+void UI_Init(UI_Handle_t *UI);
+void UI_Poll(UI_Handle_t *UI);
 
 
 #endif

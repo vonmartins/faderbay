@@ -6,14 +6,14 @@
 
 /* API */
 
-void Process_Fader(Device_t *device)
+void Process_Fader(Fader_t *fader)
 {
     /* TO DO */
     /* Validate device flags (current menu, is editing, etc) */
 }
 
 
-void Process_Button(Device_t *device)
+void Process_Button(Button_t *button)
 {
     /* TO DO */
     /* Validate device flags (current menu, is editing, etc) */

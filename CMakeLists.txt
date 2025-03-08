@@ -53,6 +53,13 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Apps/cli/cli.c
     Core/Src/cli_fns.c
     Core/Src/flash.c
+    Core/Src/config.c
+    Core/Src/button.c
+    Core/Src/fader.c
+    Core/Src/device.c
+    Core/Src/encoder.c
+    Core/Src/mux.c
+    
 )
 
 # Add include paths
