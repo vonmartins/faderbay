@@ -1,11 +1,16 @@
 #include "flash.h"
 #include "main.h"
 #include <string.h>
-//#include "stm32f4xx_hal.h"
 #include <stdint.h>
 
-
-
+/**
+ * @brief Writes configuration data to flash memory.
+ * 
+ * This function unlocks the flash memory, erases the specified sector, and writes the configuration data to the flash memory.
+ * 
+ * @param block_data Pointer to the data block to be written to flash memory.
+ * @return Returns 1 if the operation is successful, otherwise returns 0.
+ */
 uint8_t Flash_Write_Configs(Flash_Write_Block_t *block_data) {
     if (HAL_FLASH_Unlock() != HAL_OK) {
         return 0; 
@@ -36,6 +41,13 @@ uint8_t Flash_Write_Configs(Flash_Write_Block_t *block_data) {
     return 1; 
 }
 
+/**
+ * @brief Reads configuration data from flash memory.
+ * 
+ * This function reads the configuration data from the flash memory and stores it in the provided data block.
+ * 
+ * @param block_data Pointer to the data block where the data will be read.
+ */
 void Flash_Read_Configs(Flash_Write_Block_t *block_data)
 {
     uint8_t *src = (uint8_t*)FLASH_CONFIGS_START;
@@ -46,18 +58,41 @@ void Flash_Read_Configs(Flash_Write_Block_t *block_data)
     }
 }
 
+/**
+ * @brief Writes preset data to flash memory.
+ * 
+ * This function copies the provided preset data to the device configuration block and writes it to flash memory.
+ * 
+ * @param presets Pointer to the preset data to be written to flash memory.
+ * @return Returns 1 if the operation is successful, otherwise returns 0.
+ */
 uint8_t Write_Presets(Preset_t *presets)
 {
     memcpy(device_config_block.current_presets, presets, sizeof(device_config_block.current_presets));
     return Flash_Write_Configs(&device_config_block);
 }
 
+/**
+ * @brief Writes configuration data to flash memory.
+ * 
+ * This function copies the provided configuration data to the device configuration block and writes it to flash memory.
+ * 
+ * @param configs Pointer to the configuration data to be written to flash memory.
+ * @return Returns 1 if the operation is successful, otherwise returns 0.
+ */
 uint8_t Write_Configs(Config_t *configs)
 {
     memcpy(&device_config_block.current_config, configs, sizeof(device_config_block.current_config));
     return Flash_Write_Configs(&device_config_block);
 }
 
+/**
+ * @brief Checks if this is the first initialization.
+ * 
+ * This function checks the flash memory to determine if this is the first initialization by reading the first byte of the configuration data.
+ * 
+ * @return Returns 1 if this is the first initialization, otherwise returns 0.
+ */
 uint8_t Is_First_Initialization()
 {
     uint8_t flash_value = *(volatile uint8_t*)FLASH_CONFIGS_START;
