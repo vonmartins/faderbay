@@ -38,6 +38,7 @@ extern "C" {
 /* USER CODE BEGIN ET */
 extern cli_t cli; 
 extern Flash_Write_Block_t device_config_block;
+extern Device_t device;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

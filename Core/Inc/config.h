@@ -12,11 +12,11 @@
 
 #define BRIGHTNESS_DEFAULT      50
 
-#define MIDI_MIN_VALUE    0
-#define MIDI_MAX_VALUE    127
+#define MIDI_MIN_VALUE      0
+#define MIDI_MAX_VALUE      127
 
-#define CV_MIN_VALUE       0
-#define CV_MAX_VALUE       4095
+#define CV_MIN_VALUE        0
+#define CV_MAX_VALUE        4095
 
 #define MIDI_CH_1           1
 #define MIDI_CH_2           2

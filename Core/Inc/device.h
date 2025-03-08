@@ -27,8 +27,9 @@ typedef struct {
     UI_Handle_t UI;
 
     /* Configs */
-    Preset_t current_presets[NUM_PRESETS];
+    Preset_t presets[NUM_PRESETS];
     Config_t current_config;
+    uint8_t current_preset;
 
 
 } Device_t;

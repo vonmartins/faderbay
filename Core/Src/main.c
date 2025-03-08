@@ -367,6 +367,7 @@ void Device_Init(Device_t *device)
 {
   /* UI Init */
   UI_Init(&device->UI);
+  device->current_preset = 1;
 
   /* Reading from Flash */
   Flash_Read_Configs(&device_config_block);
@@ -374,7 +375,7 @@ void Device_Init(Device_t *device)
   {
     Set_Config_Default(&device->current_config);
   } else {
-    memcpy(device->current_presets, device_config_block.current_presets, sizeof(device_config_block.current_presets));
+    memcpy(device->presets, device_config_block.current_presets, sizeof(device_config_block.current_presets));
     memcpy(&device->current_config, &device_config_block.current_config, sizeof(device_config_block.current_config));
   }
 }
