@@ -1,7 +1,7 @@
 /* Fns prototypes, struct, defines */
 
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef _BUTTON_H
+#define _BUTTON_H
 
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
