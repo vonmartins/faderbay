@@ -15,11 +15,14 @@
 /* STRUCTS */
 
 typedef struct {
+    /* UI */
     Fader_t faders[NUM_FADERS];
     Button_t buttons[NUM_BUTTONS];
     Encoder_t encoder;
     uint8_t active_fader;
     uint8_t active_button;
+
+    /* */
 
 } Device_t;
 

@@ -79,7 +79,7 @@ int8_t Faders_Update(Fader_t *faders)
 
 void Encoders_Init(Encoder_t *encoder)
 {
-
+    
 }
 
 
@@ -90,7 +90,7 @@ void UI_Init(Device_t *device)
 {
     Buttons_Init(device->buttons);
     Faders_Init(device->faders);
-    //Encoder_Init(&device->encoder);
+    //Encoders_Init(&device->encoder);
 
 }
 

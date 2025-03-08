@@ -23,7 +23,7 @@
 /* USER CODE BEGIN Includes */
 //#include "device.h"
 #include "UI.h"
-
+#include "string.h"
 #include "cli_fns.h"
 /* USER CODE END Includes */
 
