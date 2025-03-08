@@ -12,6 +12,8 @@
  #define NUM_FADERS     16
  #define NUM_BUTTONS     4
 
+ #define NUM_PRESETS    16
+
 /* STRUCTS */
 
 typedef struct {
