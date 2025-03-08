@@ -1,5 +1,7 @@
-*
-build/
+# Ignore everything
+/*
+
+# Do not ignore these directories and files
 !.vscode/
 !.vscode/launch.json
 !.vscode/settings.json
