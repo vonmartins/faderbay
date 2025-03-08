@@ -6,6 +6,8 @@
 #include "UI.h"
 
 
+
+
 /* DEFINES */
 
  #define NUM_FADERS     16
@@ -41,5 +43,6 @@ typedef struct {
 
 void Process_Fader(Fader_t *fader);
 void Process_Button(Button_t *button);
+void Erase_Preset(Device_t *device, uint8_t preset_index);
 
 #endif

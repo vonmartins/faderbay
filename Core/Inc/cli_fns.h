@@ -4,7 +4,7 @@
 #include "C:\Development\Repos\faderbay\Apps\cli\cli.h"
 
 
-#define NUM_COMMANDS    5
+#define NUM_COMMANDS    7
 
 extern cmd_t cmd_tbl[NUM_COMMANDS];
 

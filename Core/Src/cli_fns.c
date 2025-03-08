@@ -27,6 +27,14 @@ cmd_t cmd_tbl[NUM_COMMANDS] = {
     {
         .cmd = "save-preset",
         .func = save_preset
+    },
+    {
+        .cmd = "set-default-config",
+        .func = set_default_config
+    },
+    {
+        .cmd = "erase-preset",
+        .func = erase_preset
     }
 };
 
@@ -184,6 +192,22 @@ static cli_status_t set_default_config(int argc, char **argv)
         return CLI_E_INVALID_ARGS; 
     }
     Set_Config_Default(&device.current_config);
+    return CLI_OK;
+}
+
+static cli_status_t erase_preset(int argc, char **argv)
+{
+    if(argc != 2)
+    {
+        cli.println("Usage: erase-preset <preset>");
+        return CLI_E_INVALID_ARGS; 
+    }
+    uint8_t preset_index = atoi(argv[1]);
+    Erase_Preset(&device, preset_index);
+
+    char buff[40];  
+    sprintf(buff, "Preset %d erased successfully\n", preset_index);
+    cli.println(buff);
     return CLI_OK;
 }
 
