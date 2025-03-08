@@ -59,6 +59,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/device.c
     Core/Src/encoder.c
     Core/Src/mux.c
+    Core/Src/midi.c
     
 )
 
