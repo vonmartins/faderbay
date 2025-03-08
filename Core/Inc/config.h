@@ -4,6 +4,8 @@
 
 #include <stdint.h>
 
+#define NUM_CONFIGS             4
+
 #define FADER_MODE_OFF          0   /* Fader not activated */
 #define FADER_MODE_MIDI         1   /* Fader MIDI mode only */
 #define FADER_MODE_MIDI_CV      2   /* Fader MIDI and CV mode */
