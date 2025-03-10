@@ -57,6 +57,7 @@ typedef struct {
 
 void Process_Fader(Fader_t *faders);
 void Process_Button(Button_t *buttons);
+void Init_Presets();
 void Erase_Preset(Device_t *device, uint8_t preset_index);
 
 #endif

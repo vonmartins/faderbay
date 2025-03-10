@@ -127,6 +127,19 @@ void Process_Encoder(Encoder_t *encoder)
     }
 }
 
+/* Init presets only for first init */
+void Init_Presets()
+{
+    for (uint8_t i = 0; i < NUM_PRESETS; i++)
+    {
+        device.presets[i].preset_num = (i + 1);
+        for (uint8_t k = 0; k < NUM_FADERS; k++){
+            device.presets[i].preset_channels[k] = MIDI_CH_DEFAULT;
+            device.presets[i].preset_ccs[k] = MIDI_CH_DEFAULT;
+        }
+    } 
+}
+
 
 void Erase_Preset(Device_t *device, uint8_t preset_index)
 {
