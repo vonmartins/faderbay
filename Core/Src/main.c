@@ -48,6 +48,7 @@ ADC_HandleTypeDef hadc1;
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 Device_t device;
@@ -62,8 +63,10 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void Device_Init(Device_t *device);
+void user_uart_println(char *string);
 void CLI_init();
 /* USER CODE END PFP */
 
@@ -104,6 +107,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   Device_Init(&device);
   /* USER CODE END 2 */
@@ -296,6 +300,39 @@ static void MX_USART1_UART_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -374,21 +411,27 @@ void Device_Init(Device_t *device)
   if (Is_First_Initialization())
   {
     Set_Config_Default(&device->current_config);
+    Init_Presets();
   } else {
     memcpy(device->presets, device_config_block.current_presets, sizeof(device_config_block.current_presets));
     memcpy(&device->current_config, &device_config_block.current_config, sizeof(device_config_block.current_config));
   }
+
+  CLI_init();
+
+  user_uart_println("Device Initialised");
+  
 }
 
 void user_uart_println(char *string)
 {
-  HAL_UART_Transmit_IT(&huart1, (uint8_t *)string, strlen(string));
+  HAL_UART_Transmit_IT(&huart2, (uint8_t *)string, strlen(string));
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-  if (huart->Instance == USART1) { 
+  if (huart->Instance == USART2) { 
       cli_put(&cli, rx_buffer);  
-      HAL_UART_Receive_IT(&huart1, &rx_buffer, 1); 
+      HAL_UART_Receive_IT(&huart2, &rx_buffer, 1); 
   }
 }
 
@@ -401,8 +444,8 @@ void CLI_init()
   if((rslt = cli_init(&cli)) != CLI_OK)
   {
     user_uart_println("CLI: Failed to initialise\r\n");
-  }
-  HAL_UART_Receive_IT(&huart1, &rx_buffer, 1);
+  } else cli.println("CLI Initialised");
+  HAL_UART_Receive_IT(&huart2, &rx_buffer, 1);
 }
 
 

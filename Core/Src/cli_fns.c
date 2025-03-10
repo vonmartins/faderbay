@@ -41,15 +41,15 @@ cmd_t cmd_tbl[NUM_COMMANDS] = {
 
 static cli_status_t help_func(int argc, char **argv)
 {
-    cli.println("Available commands:");
-    cli.println("------------------------------------------------------------");
-    cli.println("help                                   - Show this help menu");
-    cli.println("set-midi-channel <fader> <channel>     - Set MIDI channel for a fader (1-16)");
-    cli.println("set-fader-cc <fader> <cc>              - Set MIDI CC for a fader (0-127)");
-    cli.println("save-current-preset                    - Save the current configuration to the active preset");
-    cli.println("save-preset <preset>                   - Save the current configuration to a specific preset");
-    cli.println("------------------------------------------------------------");
-    cli.println("Note: Fader numbers range from 1 to NUM_FADERS");
+    cli.println("Available commands:\n"
+                "------------------------------------------------------------\n"
+                "help                                   - Show this help menu\n"
+                "set-midi-channel <fader> <channel>     - Set MIDI channel for a fader (1-16)\n"
+                "set-fader-cc <fader> <cc>              - Set MIDI CC for a fader (0-127)\n"
+                "save-current-preset                    - Save the current configuration to the active preset\n"
+                "save-preset <preset>                   - Save the current configuration to a specific preset\n"
+                "------------------------------------------------------------\n"
+                "Note: Fader numbers range from 1 to NUM_FADERS");
     return CLI_OK;
 }
 
@@ -76,7 +76,7 @@ static cli_status_t set_cc_func(int argc, char **argv)
         return CLI_E_INVALID_ARGS;
     }
 
-    device.current_config.midi_ccs[fader-1] = cc;
+    device.current_config.midi_ccs[fader] = cc;
     if(!Write_Configs(&device.current_config))
     {
         /* TO DO */
@@ -112,7 +112,7 @@ static cli_status_t set_ch_func(int argc, char **argv)
         return CLI_E_INVALID_ARGS;
     }
 
-    device.current_config.midi_channels[fader-1] = channel;
+    device.current_config.midi_channels[fader] = channel;
     if(!Write_Configs(&device.current_config))
     {
         /* TO DO */
