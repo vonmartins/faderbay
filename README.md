@@ -1,5 +1,5 @@
 # FADERBAY
 
-![Concept](Images\Concept.png)
+![Concept](Images/Concept.png)
 
 
