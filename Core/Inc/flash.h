@@ -5,6 +5,7 @@
 #include "config.h"
 #include "stm32f4xx_hal.h"
 #include <stdint.h>
+#include "device_def.h"
 
 #define FLASH_SECTOR_5_ADDR     0x08020000
 #define FLASH_CONFIGS_START     FLASH_SECTOR_5_ADDR
@@ -18,10 +19,10 @@ typedef struct {
 } Flash_Write_Block_t;
 
 
-uint8_t Flash_Write_Configs(Flash_Write_Block_t *block_data);
+device_error_t Flash_Write_Configs(Flash_Write_Block_t *block_data);
 void Flash_Read_Configs(Flash_Write_Block_t *block_data);
-uint8_t Write_Presets(Preset_t *presets);
-uint8_t Write_Configs(Config_t *configs);
+device_error_t Write_Presets(Preset_t *presets);
+device_error_t Write_Configs(Config_t *configs);
 uint8_t Is_First_Initialization();
 
 #endif
