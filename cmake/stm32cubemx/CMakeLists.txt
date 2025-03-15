@@ -13,29 +13,21 @@ target_compile_definitions(stm32cubemx INTERFACE
 )
 
 target_include_directories(stm32cubemx INTERFACE
-    ../../USB_DEVICE/App
-    ../../USB_DEVICE/Target
     ../../Core/Inc
     ../../Drivers/STM32F4xx_HAL_Driver/Inc
     ../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Inc
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc
     ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include
     ../../Drivers/CMSIS/Include
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MIDI/Inc
-    
+    ../../Apps/
 )
 
 target_sources(stm32cubemx INTERFACE
     ../../Core/Src/main.c
     ../../Core/Src/stm32f4xx_it.c
     ../../Core/Src/stm32f4xx_hal_msp.c
-    ../../USB_DEVICE/App/usb_device.c
-    ../../USB_DEVICE/App/usbd_desc.c
-    ../../USB_DEVICE/Target/usbd_conf.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c
+    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c
+    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c
+    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
@@ -49,21 +41,14 @@ target_sources(stm32cubemx INTERFACE
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
     ../../Core/Src/system_stm32f4xx.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c
     ../../Core/Src/sysmem.c
     ../../Core/Src/syscalls.c
     ../../startup_stm32f411xe.s
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MIDI/Src/usbd_midi.c
+    ../../Apps/cli/cli.c
 )
 
 target_link_directories(stm32cubemx INTERFACE
