@@ -1,19 +1,6 @@
-# /*
-# !.vscode/
-# !.vscode/launch.json
-# !.vscode/settings.json
-# !.vscode/tasks.json
-# !.vscode/extensions.json
-# !CMakeLists.txt
-# !Apps/
-# !Core/
-# !README.md
-# !Estructura_Codigo.md
-# !faderbay.ioc
-
-Drivers/
-build/
-CMakeFiles/
-cmake/stm32cubemx/cmake_install.cmake
-CMakeCache.txt
-cmake_install.cmake
+Firmware/Drivers/
+Firmware/build/
+Firmware/CMakeFiles/
+Firmware/cmake/stm32cubemx/cmake_install.cmake
+Firmware/CMakeCache.txt
+Firmware/cmake_install.cmake
