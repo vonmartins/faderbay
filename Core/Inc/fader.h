@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
-//#include "main.h"
+#include "device_def.h"
 
 /* DEFINES */
 
@@ -80,7 +80,9 @@ typedef struct {
     uint8_t name;
     // uint8_t fader_changed; /* Flag to process MIDI. Put to 0 after processing the fader */
     uint32_t raw_value; /* 0 - 4096 (12 bits ADC) */
+    uint32_t last_raw_value;
     uint8_t smooth_value; /* 0 - 127 (MIDI) */
+    uint8_t last_smooth_value;
     ADC_HandleTypeDef *hadc;
     uint8_t mux;
     uint8_t mux_channel;
@@ -90,8 +92,9 @@ typedef struct {
 /* API PROTOTYPES */
 
 void Smooth_Fader(Fader_t *fader);
-uint16_t Faders_Get_Raw_Value(Fader_t *faders, uint8_t fader);
-uint8_t Faders_Get_Smooth_Value(Fader_t *faders, uint8_t fader);
+device_error_t Fader_Poll(Fader_t *fader);
+uint16_t Fader_Get_Raw_Value(Fader_t *fader);
+uint8_t Fader_Get_Smooth_Value(Fader_t *fader);
 void Set_Faders_On();  /* Set LOW MUX1_INH and MUX2_INH pins */
 void Set_Faders_Off();  /* Set HIGH MUX1_INH and MUX2_INH pins */
 

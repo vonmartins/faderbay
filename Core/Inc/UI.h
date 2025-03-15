@@ -5,6 +5,7 @@
 #include "button.h"
 #include "encoder.h"
 #include "app_config.h"
+#include "device_def.h"
 
 /* DEFINES */
 
@@ -31,13 +32,13 @@ void Buttons_Init(Button_t *buttons);
 int8_t Buttons_Update(Button_t *buttons);
 
 void Faders_Init(Fader_t *faders);
-int8_t Faders_Update(Fader_t *faders); 
+int8_t Faders_Update(Fader_t *faders);
 
 
 void Encoders_Init(Encoder_t *encoder);
 
 
-void UI_Init(UI_Handle_t *UI);
+device_error_t UI_Init(UI_Handle_t *UI);
 void UI_Poll(UI_Handle_t *UI);
 
 

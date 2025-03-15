@@ -66,15 +66,17 @@ int8_t Faders_Update(Fader_t *faders)
 {
     for (uint8_t i = 0; i < NUM_FADERS; i++)
     {
-        uint32_t raw = Faders_Get_Raw_Value(faders, i);
-        if (faders[i].raw_value != raw)
+        if (Fader_Poll(&faders[i]) != DEVICE_OK) {
+            return -1; 
+        }
+        Smooth_Fader(&faders[i]);
+        if (faders[i].last_smooth_value != faders[i].smooth_value)
         {
-            faders[i].raw_value = raw;
-            Smooth_Fader(&faders[i]);
+            faders[i].last_smooth_value = faders[i].smooth_value;
             return i; 
         }
     }
-    return -1;  // -1 si ningún fader cambió
+    return -1; 
 }
 
 void Encoders_Init(Encoder_t *encoder)
@@ -86,16 +88,39 @@ void Encoders_Init(Encoder_t *encoder)
 
 
 
-void UI_Init(UI_Handle_t *UI)
+device_error_t UI_Init(UI_Handle_t *UI)
 {
-    Buttons_Init(UI->buttons);
-    Faders_Init(UI->faders);
-    //Encoders_Init(&device->encoder);
+    if (UI == NULL) {
+        return DEVICE_INVALID_PARAM;  // UI no puede ser NULL
+    }
 
+    // Inicializar botones
+    Buttons_Init(UI->buttons);
+
+    for (uint8_t i = 0; i < NUM_BUTTONS; i++) {
+        if (UI->buttons[i].port == NULL || UI->buttons[i].pin == 0) {
+            return DEVICE_UI_INIT_ERROR;  // Error si un botón no tiene puerto o pin asignado
+        }
+    }
+
+    // Inicializar faders
+    Faders_Init(UI->faders);
+
+    for (uint8_t i = 0; i < NUM_FADERS; i++) {
+        if (UI->faders[i].hadc == NULL) {
+            return DEVICE_UI_INIT_ERROR;  // Error si un fader no tiene ADC asignado
+        }
+    }
+
+    //Encoders_Init(&UI->encoder); 
+
+    return DEVICE_OK;  
 }
 
 
-void UI_Poll(UI_Handle_t *UI) {
+
+void UI_Poll(UI_Handle_t *UI)
+{
     // Poll Buttons
     int8_t button_pressed = Buttons_Update(UI->buttons);
     if (button_pressed != -1) {
@@ -111,6 +136,5 @@ void UI_Poll(UI_Handle_t *UI) {
     }
 
     // Poll Encoder
-    /* TO DO*/
-
+    /* TO DO */
 }
