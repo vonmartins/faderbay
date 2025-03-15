@@ -4,11 +4,10 @@
 
 #include "config.h"
 #include "UI.h"
+#include <stdio.h>
+#include "device_def.h"
 
-
-
-
-
+const char* Device_GetErrorMessage(device_error_t error);
 
 /* DEFINES */
 
@@ -23,6 +22,9 @@
 
  #define EDIT_MODE_CH           0
  #define EDIT_MODE_CCS          1
+
+
+
 
 /* STRUCTS */
 
@@ -44,12 +46,17 @@ typedef struct {
     uint8_t selected_fader;
     uint8_t selected_config;
 
-    /* Flags */
+    /* Modes */
     uint8_t ui_mode; /* Performance, editing */
     uint8_t edit_mode;
 
-} Device_t;
+    /* Flags */
+    uint8_t midi_to_send;
+    
+    /* Handles */
+    UART_HandleTypeDef *midi_handle;
 
+} Device_t;
 
 
 
@@ -59,5 +66,6 @@ void Process_Fader(Fader_t *faders);
 void Process_Button(Button_t *buttons);
 void Init_Presets();
 void Erase_Preset(Device_t *device, uint8_t preset_index);
+device_error_t Midi_Update();
 
 #endif

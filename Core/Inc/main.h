@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "C:\Development\Repos\faderbay\Apps\cli\cli.h"
+#include "cli\cli.h"
 #include "flash.h"
 /* USER CODE END Includes */
 

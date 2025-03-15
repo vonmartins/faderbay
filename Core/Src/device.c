@@ -3,8 +3,24 @@
 #include "device.h"
 #include "flash.h"
 #include <math.h>
+#include "midi.h"
+#include <stdio.h>
+#include "device_def.h"
+#include "main.h"
 
 extern Device_t device;
+
+
+const char* Device_GetErrorMessage(device_error_t error) {
+    switch (error) {
+        case DEVICE_OK: return "Operación exitosa";
+        case DEVICE_ERROR: return "Error desconocido";
+        case DEVICE_INVALID_PARAM: return "Parámetro inválido";
+        case DEVICE_UART_ERROR: return "Fallo en UART";
+        case DEVICE_NOT_READY: return "Dispositivo no está listo";
+        default: return "Código de error desconocido";
+    }
+}
 
 
 /* API */
@@ -37,6 +53,8 @@ void Process_Fader(Fader_t *faders)
     if (ui_mode == UI_MODE_PERFORMANCE)
     {
         /* TO DO: Set MIDI value */
+        PRINT("Midi To Send\r\n");
+        device.midi_to_send = 1;
 
     } else if (ui_mode == UI_MODE_EDITING)
     {
@@ -62,7 +80,7 @@ void Process_Button(Button_t *buttons)
         device.ui_mode = (device.ui_mode + 1) % 3; // Esto asegura que solo haya 3 modos y que se repita
     } else if (button == BUTTON_CONF)
     {
-        Write_Configs(&device.current_config);
+        DEVICE_PROCESS(Write_Configs(&device.current_config));
     }
 
     // Modo Performance
@@ -147,5 +165,27 @@ void Erase_Preset(Device_t *device, uint8_t preset_index)
     {
         device->presets[preset_index-1].preset_ccs[i] = MIDI_CCS_DEFAULT;
         device->presets[preset_index-1].preset_channels[i] = MIDI_CH_DEFAULT;
+    }
+}
+
+
+device_error_t Midi_Update()
+{
+    if (device.midi_to_send)
+    {
+        midi_msg msg = {
+            .header = 0xb0 | (device.current_config.midi_channels[device.selected_fader] - 1),
+            .data1 = device.current_config.midi_ccs[device.selected_fader],
+            .data2 = device.UI.faders[device.selected_fader].smooth_value
+        };
+
+        if(sendMidiCC(device.midi_handle, &msg))
+        {
+            device.midi_to_send = 0; /* Mover fuera el midi_to_send para que se active aunq haya error de uart? */
+            return DEVICE_OK;
+
+        } else {
+            return DEVICE_UART_ERROR;
+        } 
     }
 }
