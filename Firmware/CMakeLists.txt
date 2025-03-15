@@ -60,6 +60,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/encoder.c
     Core/Src/mux.c
     Core/Src/midi.c
+
     
     
 )
@@ -68,7 +69,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     ${CMAKE_PROJECT_NAME}/Core/Inc
-    ${CMAKE_PROJECT_NAME}/Apps
+    ${CMAKE_SOURCE_DIR}/Apps
     ${CMAKE_PROJECT_NAME}/Middlewares/ST/STM32_USB_Device_Library/Class/MIDI/Inc
 
 )

@@ -1,7 +1,7 @@
 #ifndef _CLI_FNS_H
 #define _CLI_FNS_H
 
-#include "cli\cli.h"
+#include "cli/cli.h"
 
 
 #define NUM_COMMANDS    7

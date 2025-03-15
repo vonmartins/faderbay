@@ -18,7 +18,6 @@ target_include_directories(stm32cubemx INTERFACE
     ../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
     ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include
     ../../Drivers/CMSIS/Include
-    ../../Apps/
 )
 
 target_sources(stm32cubemx INTERFACE
@@ -48,7 +47,6 @@ target_sources(stm32cubemx INTERFACE
     ../../Core/Src/sysmem.c
     ../../Core/Src/syscalls.c
     ../../startup_stm32f411xe.s
-    ../../Apps/cli/cli.c
 )
 
 target_link_directories(stm32cubemx INTERFACE
