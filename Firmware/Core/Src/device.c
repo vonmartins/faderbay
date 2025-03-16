@@ -3,7 +3,7 @@
 #include "device.h"
 #include "flash.h"
 #include <math.h>
-#include "midi.h"
+#include "MIDI/midi.h"
 #include <stdio.h>
 #include "device_def.h"
 #include "main.h"

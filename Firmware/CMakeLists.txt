@@ -50,7 +50,6 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     Core/Src/UI.c
-    Apps/cli/cli.c
     Core/Src/cli_fns.c
     Core/Src/flash.c
     Core/Src/config.c
@@ -59,9 +58,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/device.c
     Core/Src/encoder.c
     Core/Src/mux.c
-    Core/Src/midi.c
-
-    
+    Apps/CLI/cli.c
+    Apps/MIDI/midi.c 
     
 )
 
@@ -82,6 +80,8 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-
+    # MIDI
     # Add user defined libraries
 )
+
+# add_subdirectory(Apps/MIDI)
