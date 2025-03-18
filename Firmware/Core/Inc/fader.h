@@ -40,39 +40,6 @@
 #define FADER_15    14
 #define FADER_16    15
 
-// #define PERIPH_BASE           0x40000000UL /*!< Peripheral base address in the alias region                                */
-// #define AHB1PERIPH_BASE       (PERIPH_BASE + 0x00020000UL)
-// #define GPIOA_BASE            (AHB1PERIPH_BASE + 0x0000UL)
-// #define GPIOB_BASE            (AHB1PERIPH_BASE + 0x0400UL)
-// #define GPIOC_BASE            (AHB1PERIPH_BASE + 0x0800UL)
-// #define GPIOD_BASE            (AHB1PERIPH_BASE + 0x0C00UL)
-// #define GPIOE_BASE            (AHB1PERIPH_BASE + 0x1000UL)
-// #define GPIOH_BASE            (AHB1PERIPH_BASE + 0x1C00UL)
-// #define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
-// #define GPIOB               ((GPIO_TypeDef *) GPIOB_BASE)
-// #define GPIOC               ((GPIO_TypeDef *) GPIOC_BASE)
-// #define GPIOD               ((GPIO_TypeDef *) GPIOD_BASE)
-// #define GPIOE               ((GPIO_TypeDef *) GPIOE_BASE)
-// #define GPIOH               ((GPIO_TypeDef *) GPIOH_BASE)
-// #define MUX1_S0_Pin GPIO_PIN_7
-// #define MUX1_S0_GPIO_Port GPIOA
-// #define MUX1_S1_Pin GPIO_PIN_4
-// #define MUX1_S1_GPIO_Port GPIOC
-// #define MUX1_S2_Pin GPIO_PIN_5
-// #define MUX1_S2_GPIO_Port GPIOC
-// #define MUX2_S0_Pin GPIO_PIN_0
-// #define MUX2_S0_GPIO_Port GPIOB
-// #define MUX2_S1_Pin GPIO_PIN_1
-// #define MUX2_S1_GPIO_Port GPIOB
-// #define MUX2_S2_Pin GPIO_PIN_2
-// #define MUX2_S2_GPIO_Port GPIOB
-// #define MUX1_INH_Pin GPIO_PIN_11
-// #define MUX1_INH_GPIO_Port GPIOE
-// #define MUX2_INH_Pin GPIO_PIN_12
-// #define MUX2_INH_GPIO_Port GPIOE
-
-
-
 
 /* STRUCTS */
 

@@ -74,14 +74,14 @@ uint8_t Fader_Get_Smooth_Value(Fader_t *fader)
 }
 
 
-// void Set_Faders_On()  /* Set LOW MUX1_INH and MUX2_INH pins */
-// {
-//     HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
-//     HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
-// }
+void Set_Faders_On()  /* Set LOW MUX1_INH and MUX2_INH pins */
+{
+    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_RESET);
+}
 
-// void Set_Faders_Off()  /* Set HIGH MUX1_INH and MUX2_INH pins */
-// {
-//     HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
-//     HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
-// }
+void Set_Faders_Off()  /* Set HIGH MUX1_INH and MUX2_INH pins */
+{
+    HAL_GPIO_WritePin(MUX1_INH_GPIO_Port, MUX1_INH_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(MUX2_INH_GPIO_Port, MUX2_INH_Pin, GPIO_PIN_SET);
+}
