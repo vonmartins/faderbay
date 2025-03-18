@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ProPrj_FaderBay_2025-03-18")(type "KiCad")(uri "$(KIPRJMOD)/ProPrj_FaderBay_2025-03-18.pretty")(options "")(descr ""))
+)
