@@ -1,5 +1,7 @@
 # FADERBAY
 
+Current Status: Firmware not finnished. 
+
 ![Concept](Images/Concept.png)
 
 ![im1](Images/Faderbay1.png)
