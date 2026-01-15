@@ -97,11 +97,11 @@
           ""
         ],
         [
-          "unconnected_items|141260000|-55704000|b9c68291-45a1-4bbe-aaef-4eeea82bddb1|ef5a63c0-3a4f-493e-b765-3d9d82980f4c",
+          "unconnected_items|141260000|-55704000|F.Cu|4|b9c68291-45a1-4bbe-aaef-4eeea82bddb1|ef5a63c0-3a4f-493e-b765-3d9d82980f4c",
           ""
         ],
         [
-          "unconnected_items|141510000|-57404000|206fe19f-923d-48ee-b084-baa0de3a6f15|1064e70e-7a76-43a6-b31d-e5270be97999",
+          "unconnected_items|141510000|-57404000|F.Cu|4|206fe19f-923d-48ee-b084-baa0de3a6f15|1064e70e-7a76-43a6-b31d-e5270be97999",
           ""
         ]
       ],
@@ -154,6 +154,7 @@
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
         "text_height": "warning",
+        "text_on_edge_cuts": "error",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -521,6 +522,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -759,6 +761,12 @@
           "label": "Assembly",
           "name": "Assembly",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Campo sin título",
+          "name": "Campo sin título",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -774,7 +782,13 @@
       "dashed_lines_gap_length_ratio": 3.0,
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
-      "field_names": [],
+      "field_names": [
+        {
+          "name": "Campo sin título",
+          "url": false,
+          "visible": false
+        }
+      ],
       "intersheets_ref_own_page": false,
       "intersheets_ref_prefix": "",
       "intersheets_ref_short": false,
