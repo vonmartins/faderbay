@@ -1,0 +1,183 @@
+Informe de ERC (2026-01-18T20:37:25+0100, codificación UTF8)
+
+***** Hoja /
+[footprint_link_issues]: The current configuration does not include the footprint library 'USB'.
+    ; warning
+    @(1250 mils, 1950 mils): Símbolo J2 [USB_C_Receptacle_USB2.0_14P]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(3950 mils, 1250 mils): Símbolo S1 [LC2255EENPTAGBLK]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(4700 mils, 4350 mils): Símbolo D1 [LED]
+[multiple_net_names]: Tanto VBUS_SW como +5VD están conectados a los mismos elementos; se utilizará VBUS_SW en el listado de redes
+    ; warning
+    @(4350 mils, 2700 mils): Etiqueta global «VBUS_SW»
+    @(8500 mils, 2550 mils): Symbol #PWR010 Pin 1 [Power input, Line]
+[global_label_dangling]: Etiqueta global no conectada en ningún otro lugar del esquema
+    ; warning
+    @(3500 mils, 9650 mils): Etiqueta global «UART_RX»
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8650 mils, 5700 mils): Símbolo J4 [52437-2471]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(10300 mils, 5550 mils): Símbolo RV1 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(10300 mils, 7300 mils): Símbolo RV2 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(10300 mils, 9050 mils): Símbolo RV3 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(13100 mils, 5550 mils): Símbolo J5 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(13100 mils, 5550 mils): Símbolo J5 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(10300 mils, 10800 mils): Símbolo RV4 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(13100 mils, 7300 mils): Símbolo J6 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(13100 mils, 7300 mils): Símbolo J6 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14000 mils, 5550 mils): Símbolo RV7 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14000 mils, 7300 mils): Símbolo RV8 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(13100 mils, 9050 mils): Símbolo J7 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(13100 mils, 9050 mils): Símbolo J7 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8050 mils, 13750 mils): Símbolo SW3 [EC11E15204A3]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14000 mils, 9050 mils): Símbolo RV9 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(13100 mils, 10800 mils): Símbolo J8 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(13100 mils, 10800 mils): Símbolo J8 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(11200 mils, 13150 mils): Símbolo RV5 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14000 mils, 10800 mils): Símbolo RV10 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(16800 mils, 5550 mils): Símbolo J12 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(16800 mils, 5550 mils): Símbolo J12 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(16800 mils, 7300 mils): Símbolo J13 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(16800 mils, 7300 mils): Símbolo J13 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(17600 mils, 5550 mils): Símbolo RV13 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(11200 mils, 14900 mils): Símbolo RV6 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(17600 mils, 7300 mils): Símbolo RV14 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(16800 mils, 9050 mils): Símbolo J15 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(16800 mils, 9050 mils): Símbolo J15 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(14000 mils, 13150 mils): Símbolo J10 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(14000 mils, 13150 mils): Símbolo J10 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14750 mils, 13100 mils): Símbolo RV11 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(17600 mils, 9050 mils): Símbolo RV15 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(16800 mils, 10800 mils): Símbolo J16 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(16800 mils, 10800 mils): Símbolo J16 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(14000 mils, 14900 mils): Símbolo J11 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(14000 mils, 14900 mils): Símbolo J11 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(17600 mils, 10800 mils): Símbolo RV16 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(20700 mils, 2200 mils): Símbolo J14 [MIDI DIN-5]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(20700 mils, 2200 mils): Símbolo J14 [MIDI DIN-5]
+[footprint_link_issues]: The current configuration does not include the footprint library 'User'.
+    ; warning
+    @(14750 mils, 14850 mils): Símbolo RV12 [R_Potentiometer]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(20400 mils, 5550 mils): Símbolo J19 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(20400 mils, 5550 mils): Símbolo J19 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(20400 mils, 7300 mils): Símbolo J20 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(20400 mils, 7300 mils): Símbolo J20 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(17550 mils, 13100 mils): Símbolo J17 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(17550 mils, 13100 mils): Símbolo J17 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(20400 mils, 9050 mils): Símbolo J21 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(20400 mils, 9050 mils): Símbolo J21 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(22300 mils, 2300 mils): Símbolo J9 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(22300 mils, 2300 mils): Símbolo J9 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(17550 mils, 14850 mils): Símbolo J18 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(17550 mils, 14850 mils): Símbolo J18 [PJ-320B]
+[footprint_link_issues]: The current configuration does not include the footprint library 'Eurorack'.
+    ; warning
+    @(20400 mils, 10800 mils): Símbolo J22 [PJ-320B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Eurorack'
+    ; warning
+    @(20400 mils, 10800 mils): Símbolo J22 [PJ-320B]
+
+**Mensajes ERC: 59. Errores0, Avisos 59

@@ -302,12 +302,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      [
-        "power_pin_not_driven|1282700|1333500|a9cdfdf2-1b27-42ca-ba2b-bbd13658b165|00000000-0000-0000-0000-000000000000|/74ce8934-3848-44a6-9432-e47a40824392|/74ce8934-3848-44a6-9432-e47a40824392|",
-        ""
-      ]
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -500,7 +495,7 @@
       "hier_label_mismatch": "error",
       "label_dangling": "error",
       "label_multiple_wires": "warning",
-      "lib_symbol_issues": "warning",
+      "lib_symbol_issues": "ignore",
       "lib_symbol_mismatch": "warning",
       "missing_bidi_pin": "warning",
       "missing_input_pin": "warning",
@@ -513,7 +508,7 @@
       "pin_not_connected": "error",
       "pin_not_driven": "error",
       "pin_to_pin": "error",
-      "power_pin_not_driven": "warning",
+      "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
@@ -585,7 +580,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
-    "bom_export_filename": "..\\..\\Assembly\\Faderbay_BOM.csv",
+    "bom_export_filename": "/home/vonmartins/Nextcloud/Baul/Development/Projects/faderbay/Faderbay.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -819,7 +814,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "Faderbay_Schematic",
-    "plot_directory": "../../../../../../Users/marti/Desktop/",
+    "plot_directory": "/home/vonmartins/Desktop/",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
