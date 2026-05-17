@@ -1,6 +1,26 @@
-Firmware/Drivers/
-Firmware/build/
-Firmware/CMakeFiles/
-Firmware/cmake/stm32cubemx/cmake_install.cmake
-Firmware/CMakeCache.txt
-Firmware/cmake_install.cmake
+# Build outputs
+Firmware/Faderbay/build/
+Firmware/Faderbay/CMakeFiles/
+Firmware/Faderbay/CMakeCache.txt
+Firmware/Faderbay/cmake_install.cmake
+Firmware/Faderbay/cmake/stm32cubemx/cmake_install.cmake
+__cmake_systeminformation/
+
+# KiCad auto-generated
+Hardware/Kicad/Faderbay-backups/
+Hardware/Kicad/.history/
+Hardware/Kicad/.history_trim/
+Hardware/Kicad/fp-info-cache
+Hardware/Kicad/Faderbay_drc_violations.json
+Hardware/Kicad/ERC.rpt
+Hardware/Kicad/freerouting.ses
+Hardware/Kicad/Faderbay.ses
+Hardware/Kicad/Faderbay.frb
+Hardware/Kicad/*.bak
+
+# Manual PCB backups
+Hardware/Faderbay_backup_*.kicad_pcb
+
+# Editor / tools
+.claude/
+chat.text
