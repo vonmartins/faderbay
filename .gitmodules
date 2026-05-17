@@ -1,0 +1,3 @@
+[submodule "Firmware/Faderbay/Lib/NanoLog"]
+	path = Firmware/Faderbay/Lib/NanoLog
+	url = https://github.com/vonmartins/NanoLog.git
