@@ -3,13 +3,17 @@
  * Resource Manager layer — Simple cooperative round-robin scheduler
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "scheduler.h"
 #include "config.h"
 #include "faderbay_types.h"
 #include <stdint.h>
 #include <string.h>
 
-/* --- Private types --------------------------------- */
+// =========================== PRIVATE DEFINES =========================
+
+// ============================ PRIVATE TYPES ==========================
 
 typedef struct {
     uint32_t  period_ms;   /* Período de ejecución en ms */
@@ -17,8 +21,7 @@ typedef struct {
     void    (*task)(void); /* Puntero a la función de proceso */
 } SchTask_t;
 
-
-/* --- Private variables --------------------------------- */
+// =========================== PRIVATE VARIABLES =======================
 
 static volatile uint32_t s_tick;
 
@@ -26,14 +29,19 @@ static SchTask_t s_tasks[SCH_MAX_TASKS];
 
 static uint8_t s_task_count;
 
-/* --- Private functions --------------------------------- */
+// ========================= PRIVATE FUNC. DECL. =======================
+
+static void exec_task(uint8_t index);
+
+// =========================== PRIVATE FUNCTIONS =======================
+
 static void exec_task(uint8_t index) {
     if (s_tasks[index].task == NULL) return;
     s_tasks[index].task();
     s_tasks[index].last_run = s_tick;
 }
 
-/* --- Public functions --------------------------------- */
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t Scheduler_Init(void) {
     s_tick = 0;

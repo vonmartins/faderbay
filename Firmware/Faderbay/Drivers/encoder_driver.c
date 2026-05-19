@@ -3,13 +3,26 @@
  * Driver layer — Quadrature encoder input driver
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "encoder_driver.h"
 #include <stdint.h>
 
+// =========================== PRIVATE DEFINES =========================
+
+// ============================ PRIVATE TYPES ==========================
+
+// =========================== PRIVATE VARIABLES =======================
 
 static TIM_HandleTypeDef * s_htim;
 static uint16_t s_last_count;
 static int16_t s_delta;
+
+// ========================= PRIVATE FUNC. DECL. =======================
+
+// =========================== PRIVATE FUNCTIONS =======================
+
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t EncoderDriver_Init(TIM_HandleTypeDef *htim) {
     if (htim == NULL) return FB_ERR_INVALID_PARAM;

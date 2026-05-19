@@ -3,6 +3,8 @@
  * Driver layer — Low-level motorised fader driver
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "fader_driver.h"
 #include "config.h"
 #include "faderbay_types.h"
@@ -11,13 +13,24 @@
 #include <stdint.h>
 #include <string.h>
 
+// =========================== PRIVATE DEFINES =========================
+
 #define MUX_NUM_CH      NUM_FADERS
 #define MUX_NUM_SEL     4
+
+// ============================ PRIVATE TYPES ==========================
+
+// =========================== PRIVATE VARIABLES =======================
 
 static ADC_HandleTypeDef * s_hadc;
 static uint16_t s_raw[NUM_FADERS];
 static uint8_t s_channel;
 
+// ========================= PRIVATE FUNC. DECL. =======================
+
+// =========================== PRIVATE FUNCTIONS =======================
+
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t FaderDriver_Init(ADC_HandleTypeDef *hadc) {
     if (hadc == NULL) return FB_ERR_INVALID_PARAM;

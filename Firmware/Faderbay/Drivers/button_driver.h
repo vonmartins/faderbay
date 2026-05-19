@@ -1,11 +1,19 @@
 #ifndef BUTTON_DRIVER_H
 #define BUTTON_DRIVER_H
 
+// ============================= INCLUDES ==============================
+
 #include "faderbay_types.h"
 #include <stdint.h>
 
+// ============================ PUBLIC DEFINES =========================
+
 #define BTN_PRESSED     0
 #define BTN_RELEASED    1
+
+// ============================ PUBLIC TYPES ===========================
+
+// ========================= PUBLIC FUNC. DECL. ========================
 
 fb_err_t ButtonDriver_Init(void);
 

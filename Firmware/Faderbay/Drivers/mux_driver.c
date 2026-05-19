@@ -3,14 +3,28 @@
  * Driver layer — Multiplexor driver
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "mux_driver.h"
 #include "faderbay_types.h"
 #include "gpio.h"
 #include <stdint.h>
 #include <string.h>
 
+// =========================== PRIVATE DEFINES =========================
+
+// ============================ PRIVATE TYPES ==========================
+
+// =========================== PRIVATE VARIABLES =======================
+
 static MuxConfig_t s_config;
 static uint8_t s_initialized;
+
+// ========================= PRIVATE FUNC. DECL. =======================
+
+// =========================== PRIVATE FUNCTIONS =======================
+
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t MuxDriver_Init(const MuxConfig_t *config) {
     if (config == NULL) return FB_ERR_INVALID_PARAM;

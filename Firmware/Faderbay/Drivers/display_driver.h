@@ -1,9 +1,17 @@
 #ifndef DISPLAY_DRIVER_H
 #define DISPLAY_DRIVER_H
 
+// ============================= INCLUDES ==============================
+
 #include "faderbay_types.h"
 #include "spi.h"
 #include <stdint.h>
+
+// ============================ PUBLIC DEFINES =========================
+
+// ============================ PUBLIC TYPES ===========================
+
+// ========================= PUBLIC FUNC. DECL. ========================
 
 fb_err_t DisplayDriver_Init(SPI_HandleTypeDef *hspi);
 

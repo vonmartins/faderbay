@@ -3,6 +3,8 @@
  * Driver layer — Debounced button input driver
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "button_driver.h"
 #include "config.h"
 #include "faderbay_types.h"
@@ -11,11 +13,23 @@
 #include <string.h>
 #include "main.h"
 
+// =========================== PRIVATE DEFINES =========================
+
+// ============================ PRIVATE TYPES ==========================
+
+// =========================== PRIVATE VARIABLES =======================
+
 static uint8_t s_state[NUM_BUTTONS];
 static uint8_t s_event[NUM_BUTTONS];
 static GPIO_TypeDef * const s_ports[NUM_BUTTONS] = {BTN_1_GPIO_Port, BTN_2_GPIO_Port, BTN_3_GPIO_Port, BTN_4_GPIO_Port};
 static const uint16_t       s_pins[NUM_BUTTONS]  = {BTN_1_Pin, BTN_2_Pin, BTN_3_Pin, BTN_4_Pin};
 static uint8_t s_debounce[NUM_BUTTONS];
+
+// ========================= PRIVATE FUNC. DECL. =======================
+
+// =========================== PRIVATE FUNCTIONS =======================
+
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t ButtonDriver_Init(void) {
     memset(s_state, 0, sizeof(s_state));

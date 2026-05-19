@@ -1,12 +1,16 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
+// ============================= INCLUDES ==============================
+
 #include <stdint.h>
 #include "faderbay_types.h"
 
+// ============================ PUBLIC DEFINES =========================
 
+// ============================ PUBLIC TYPES ===========================
 
-/* --- Public functions --------------------------------- */
+// ========================= PUBLIC FUNC. DECL. ========================
 
 fb_err_t Scheduler_Init(void);
 
@@ -17,8 +21,5 @@ uint32_t Scheduler_GetTick(void);
 fb_err_t Scheduler_RegisterTask(void (*task)(void), uint32_t period_ms);
 
 void Scheduler_Tick(void);
-
-/* --- Private functions --------------------------------- */
-
 
 #endif /* SCHEDULER_H */

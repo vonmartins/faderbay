@@ -1,8 +1,13 @@
 #ifndef FADERBAY_TYPES_H
 #define FADERBAY_TYPES_H
 
+// ============================= INCLUDES ==============================
+
 #include <stdint.h>
 
+// ============================ PUBLIC DEFINES =========================
+
+// ============================ PUBLIC TYPES ===========================
 
 typedef enum {
     FB_OK                   = 0,             // Éxito (valor positivo o 0)
@@ -28,5 +33,7 @@ typedef enum {
     UI_MODE_EDITING         = 1,
     UI_MODE_CONFIG          = 2
 } AppState_t;
+
+// ========================= PUBLIC FUNC. DECL. ========================
 
 #endif /* FADERBAY_TYPES_H */

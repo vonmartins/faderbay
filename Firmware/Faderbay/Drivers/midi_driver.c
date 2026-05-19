@@ -3,22 +3,33 @@
  * Driver layer — Low-level MIDI UART framing driver
  * ========================================================= */
 
+// ============================= INCLUDES ==============================
+
 #include "midi_driver.h"
 #include "faderbay_types.h"
 #include "stm32f4xx_hal.h"
 #include "uart.h"
 
+// =========================== PRIVATE DEFINES =========================
+
+// ============================ PRIVATE TYPES ==========================
+
+// =========================== PRIVATE VARIABLES =======================
 
 static UART_HandleTypeDef * s_huart;
 
-/* PRIVATE FNS */
+// ========================= PRIVATE FUNC. DECL. =======================
+
+static fb_err_t send_message(uint8_t *msg, uint8_t len);
+
+// =========================== PRIVATE FUNCTIONS =======================
 
 static fb_err_t send_message(uint8_t *msg, uint8_t len) {
     if (msg == NULL || len == 0) return FB_ERR_INVALID_PARAM;
     return UART_SendBuffer(s_huart, msg, len);
 }
 
-/* PUBLIC FNS */
+// =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t MidiDriver_Init(UART_HandleTypeDef *huart) {
     if (huart == NULL) return FB_ERR_INVALID_PARAM;
