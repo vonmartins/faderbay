@@ -14,6 +14,10 @@ void Scheduler_Run(void);
 
 uint32_t Scheduler_GetTick(void);
 
+fb_err_t Scheduler_RegisterTask(void (*task)(void), uint32_t period_ms);
+
+void Scheduler_Tick(void);
+
 /* --- Private functions --------------------------------- */
 
 

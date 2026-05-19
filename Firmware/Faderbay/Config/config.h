@@ -7,4 +7,8 @@
 #define FB_NUM_BUTTONS    4
 #define FB_NUM_PRESETS   16
 
+#define SCH_MAX_TASKS   10u
+
+#define NUM_BUTTONS     4
+
 #endif /* CONFIG_H */

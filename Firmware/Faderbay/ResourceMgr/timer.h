@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
-/* TODO: declarations */
+uint32_t Timer_Now(void);
+uint8_t  Timer_Elapsed(uint32_t start, uint32_t duration_ms);
+void     Timer_Delay(uint32_t duration_ms);
 
 #endif /* TIMER_H */

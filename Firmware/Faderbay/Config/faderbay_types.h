@@ -12,7 +12,8 @@ typedef enum {
     FB_ERR_SPI              = 4,
     FB_ERR_ADC              = 5,       // Operación con timeout
     FB_ERR_NOT_READY        = 6,     // Dispositivo no está listo
-    FB_ERR_MEMORY           = 7   // Error de memoria
+    FB_ERR_MEMORY           = 7,   // Error de memoria
+    FB_ERR_TIMER            = 8
 } fb_err_t;
 
 typedef enum {
