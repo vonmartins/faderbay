@@ -63,6 +63,33 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ResourceMgr/uart.c
     ResourceMgr/gpio.c
     ResourceMgr/timer.c
+    # u8g2 — ST7920 SPI full buffer mode
+    Lib/u8g2/csrc/u8g2_setup.c
+    Lib/u8g2/csrc/u8g2_d_setup.c
+    Lib/u8g2/csrc/u8g2_d_memory.c
+    Lib/u8g2/csrc/u8g2_buffer.c
+    Lib/u8g2/csrc/u8g2_hvline.c
+    Lib/u8g2/csrc/u8g2_line.c
+    Lib/u8g2/csrc/u8g2_box.c
+    Lib/u8g2/csrc/u8g2_circle.c
+    Lib/u8g2/csrc/u8g2_font.c
+    Lib/u8g2/csrc/u8g2_fonts.c
+    Lib/u8g2/csrc/u8g2_draw.c
+    Lib/u8g2/csrc/u8g2_bitmap.c
+    Lib/u8g2/csrc/u8g2_intersection.c
+    Lib/u8g2/csrc/u8g2_ll_hvline.c
+    Lib/u8g2/csrc/u8g2_message.c
+    Lib/u8g2/csrc/u8g2_polygon.c
+    Lib/u8g2/csrc/u8g2_string.c
+    Lib/u8g2/csrc/u8x8_string.c
+    Lib/u8g2/csrc/u8x8_setup.c
+    Lib/u8g2/csrc/u8x8_u8toa.c
+    Lib/u8g2/csrc/u8x8_8x8.c
+    Lib/u8g2/csrc/u8x8_display.c
+    Lib/u8g2/csrc/u8x8_fonts.c
+    Lib/u8g2/csrc/u8x8_byte.c
+    Lib/u8g2/csrc/u8x8_gpio.c
+    Lib/u8g2/csrc/u8x8_cad.c
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -71,6 +98,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     Drivers
     ResourceMgr
     Config
+    Lib/u8g2/csrc
 )
 
 # Add project symbols (macros)

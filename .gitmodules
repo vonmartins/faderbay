@@ -1,3 +1,6 @@
 [submodule "Firmware/Faderbay/Lib/NanoLog"]
 	path = Firmware/Faderbay/Lib/NanoLog
 	url = https://github.com/vonmartins/NanoLog.git
+[submodule "Firmware/Faderbay/Lib/u8g2"]
+	path = Firmware/Faderbay/Lib/u8g2
+	url = https://github.com/olikraus/u8g2.git
