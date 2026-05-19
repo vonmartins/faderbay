@@ -10,5 +10,6 @@
 #define SCH_MAX_TASKS   10u
 
 #define NUM_BUTTONS     4
+#define NUM_FADERS      16
 
 #endif /* CONFIG_H */
