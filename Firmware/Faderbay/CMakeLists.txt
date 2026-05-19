@@ -74,13 +74,11 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Lib/u8g2/csrc/u8g2_circle.c
     Lib/u8g2/csrc/u8g2_font.c
     Lib/u8g2/csrc/u8g2_fonts.c
-    Lib/u8g2/csrc/u8g2_draw.c
     Lib/u8g2/csrc/u8g2_bitmap.c
     Lib/u8g2/csrc/u8g2_intersection.c
     Lib/u8g2/csrc/u8g2_ll_hvline.c
     Lib/u8g2/csrc/u8g2_message.c
     Lib/u8g2/csrc/u8g2_polygon.c
-    Lib/u8g2/csrc/u8g2_string.c
     Lib/u8g2/csrc/u8x8_string.c
     Lib/u8g2/csrc/u8x8_setup.c
     Lib/u8g2/csrc/u8x8_u8toa.c
