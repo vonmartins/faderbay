@@ -10,6 +10,7 @@
 #include "faderbay_types.h"
 #include "main.h"
 #include "mux_driver.h"
+#include "nlog.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -22,6 +23,8 @@
 
 // =========================== PRIVATE VARIABLES =======================
 
+static const char *TAG = "FADER_DRV";
+
 static ADC_HandleTypeDef * s_hadc;
 static uint16_t s_raw[NUM_FADERS];
 static uint8_t s_channel;
@@ -33,7 +36,10 @@ static uint8_t s_channel;
 // =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t FaderDriver_Init(ADC_HandleTypeDef *hadc) {
-    if (hadc == NULL) return FB_ERR_INVALID_PARAM;
+    if (hadc == NULL) {
+        LOGE(TAG, "Init failed: null ADC handle");
+        return FB_ERR_INVALID_PARAM;
+    }
     memset(s_raw, 0, sizeof(s_raw));
     s_channel = 0;
     s_hadc = hadc;
@@ -45,8 +51,13 @@ fb_err_t FaderDriver_Init(ADC_HandleTypeDef *hadc) {
         .sel_ports = {MUX_S0_GPIO_Port, MUX_S1_GPIO_Port, MUX_S2_GPIO_Port, MUX_S3_GPIO_Port}
     };
 
-    return MuxDriver_Init(&s_mux_cfg);
-
+    fb_err_t err = MuxDriver_Init(&s_mux_cfg);
+    if (err != FB_OK) {
+        LOGE(TAG, "Init failed: MuxDriver");
+        return err;
+    }
+    LOGI(TAG, "Init OK");
+    return FB_OK;
 }
 
 void FaderDriver_Process(void) {

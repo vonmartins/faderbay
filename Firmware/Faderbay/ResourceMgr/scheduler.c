@@ -8,6 +8,7 @@
 #include "scheduler.h"
 #include "config.h"
 #include "faderbay_types.h"
+#include "nlog.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -16,17 +17,17 @@
 // ============================ PRIVATE TYPES ==========================
 
 typedef struct {
-    uint32_t  period_ms;   /* Período de ejecución en ms */
-    uint32_t  last_run;    /* Tick de la última ejecución */
-    void    (*task)(void); /* Puntero a la función de proceso */
+    uint32_t  period_ms;
+    uint32_t  last_run;
+    void    (*task)(void);
 } SchTask_t;
 
 // =========================== PRIVATE VARIABLES =======================
 
+static const char *TAG = "SCH";
+
 static volatile uint32_t s_tick;
-
 static SchTask_t s_tasks[SCH_MAX_TASKS];
-
 static uint8_t s_task_count;
 
 // ========================= PRIVATE FUNC. DECL. =======================
@@ -46,6 +47,7 @@ static void exec_task(uint8_t index) {
 fb_err_t Scheduler_Init(void) {
     s_tick = 0;
     memset(s_tasks, 0, sizeof(s_tasks));
+    LOGI(TAG, "Init OK");
     return FB_OK;
 }
 
@@ -58,13 +60,18 @@ void Scheduler_Run(void) {
 }
 
 uint32_t Scheduler_GetTick(void) {
-
     return s_tick;
 }
 
 fb_err_t Scheduler_RegisterTask(void (*task)(void), uint32_t period_ms) {
-    if (task == NULL || period_ms == 0) return FB_ERR_INVALID_PARAM;
-    if (s_task_count >= SCH_MAX_TASKS) return FB_ERR_GENERIC;
+    if (task == NULL || period_ms == 0) {
+        LOGE(TAG, "RegisterTask: invalid param");
+        return FB_ERR_INVALID_PARAM;
+    }
+    if (s_task_count >= SCH_MAX_TASKS) {
+        LOGE(TAG, "RegisterTask: task table full");
+        return FB_ERR_GENERIC;
+    }
 
     s_tasks[s_task_count].period_ms = period_ms;
     s_tasks[s_task_count].task = task;

@@ -6,6 +6,7 @@
 // ============================= INCLUDES ==============================
 
 #include "encoder_driver.h"
+#include "nlog.h"
 #include <stdint.h>
 
 // =========================== PRIVATE DEFINES =========================
@@ -13,6 +14,8 @@
 // ============================ PRIVATE TYPES ==========================
 
 // =========================== PRIVATE VARIABLES =======================
+
+static const char *TAG = "ENC_DRV";
 
 static TIM_HandleTypeDef * s_htim;
 static uint16_t s_last_count;
@@ -25,13 +28,18 @@ static int16_t s_delta;
 // =========================== PUBLIC FUNCTIONS ========================
 
 fb_err_t EncoderDriver_Init(TIM_HandleTypeDef *htim) {
-    if (htim == NULL) return FB_ERR_INVALID_PARAM;
+    if (htim == NULL) {
+        LOGE(TAG, "Init failed: null TIM handle");
+        return FB_ERR_INVALID_PARAM;
+    }
     s_htim = htim;
-    s_last_count = 0;
     s_delta = 0;
     if (HAL_TIM_Encoder_Start(htim, TIM_CHANNEL_ALL) != HAL_OK) {
+        LOGE(TAG, "Init failed: HAL_TIM_Encoder_Start");
         return FB_ERR_TIMER;
     }
+    s_last_count = __HAL_TIM_GET_COUNTER(htim);
+    LOGI(TAG, "Init OK");
     return FB_OK;
 }
 

@@ -9,6 +9,7 @@
 #include "config.h"
 #include "faderbay_types.h"
 #include "gpio.h"
+#include "nlog.h"
 #include <stdint.h>
 #include <string.h>
 #include "main.h"
@@ -18,6 +19,8 @@
 // ============================ PRIVATE TYPES ==========================
 
 // =========================== PRIVATE VARIABLES =======================
+
+static const char *TAG = "BTN_DRV";
 
 static uint8_t s_state[NUM_BUTTONS];
 static uint8_t s_event[NUM_BUTTONS];
@@ -35,6 +38,7 @@ fb_err_t ButtonDriver_Init(void) {
     memset(s_state, 0, sizeof(s_state));
     memset(s_event, 0, sizeof(s_event));
     memset(s_debounce, 0, sizeof(s_debounce));
+    LOGI(TAG, "Init OK");
     return FB_OK;
 }
 
@@ -42,9 +46,9 @@ void ButtonDriver_Process(void) {
     for (uint8_t i = 0; i < NUM_BUTTONS; i++) {
         s_state[i] = GPIO_Get(s_ports[i], s_pins[i]);
         if (s_state[i] == BTN_PRESSED) {
-            s_debounce[i]++;
-            if (s_debounce[i] == 2) {
-                s_event[i] = 1;
+            if (s_debounce[i] < 2) {
+                s_debounce[i]++;
+                if (s_debounce[i] == 2) s_event[i] = 1;
             }
         } else {
             s_debounce[i] = 0;
@@ -53,6 +57,7 @@ void ButtonDriver_Process(void) {
 }
 
 uint8_t ButtonDriver_GetEvent(uint8_t index) {
+    if (index >= NUM_BUTTONS) return 0;
     if (s_event[index]) {
         s_event[index] = 0;
         return 1;
