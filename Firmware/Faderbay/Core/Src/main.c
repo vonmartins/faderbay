@@ -23,7 +23,23 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "nlog.h"
+#include "scheduler.h"
+#include "gpio.h"
+#include "uart.h"
+#include "spi.h"
+#include "adc.h"
+#include "timer.h"
+#include "midi_driver.h"
+#include "button_driver.h"
+#include "encoder_driver.h"
+#include "fader_driver.h"
+#include "display_driver.h"
+#include "fader_control.h"
+#include "midi_control.h"
+#include "app_state.h"
+#include "ui_control.h"
+#include "config.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,7 +80,7 @@ static void MX_TIM3_Init(void);
 static void MX_UART5_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+static void Device_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -108,7 +124,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  Scheduler_Init();
+  Device_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -424,7 +440,34 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void Device_Init(void) {
+    // Logging
+    NLOG_UART_INIT(&huart2);
 
+    // Resource Manager
+    Scheduler_Init();
+
+    // Drivers
+    MidiDriver_Init(&huart5);
+    ButtonDriver_Init();
+    EncoderDriver_Init(&htim3);
+    FaderDriver_Init(&hadc1);
+    DisplayDriver_Init(&hspi1);
+
+    // Application
+    AppState_Init();
+    FaderControl_Init();
+    UIControl_Init();
+
+    // Scheduler tasks
+    Scheduler_RegisterTask(FaderDriver_Process,   PERIOD_FADER_DRIVER);
+    Scheduler_RegisterTask(EncoderDriver_Process, PERIOD_ENCODER_DRIVER);
+    Scheduler_RegisterTask(FaderControl_Process,  PERIOD_FADER_CONTROL);
+    Scheduler_RegisterTask(MidiControl_Process,   PERIOD_MIDI_CONTROL);
+    Scheduler_RegisterTask(ButtonDriver_Process,  PERIOD_BUTTON_DRIVER);
+    Scheduler_RegisterTask(UIControl_Process,     PERIOD_UI_CONTROL);
+    Scheduler_RegisterTask(DisplayDriver_Flush,   PERIOD_DISPLAY_FLUSH);
+}
 /* USER CODE END 4 */
 
 /**

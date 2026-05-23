@@ -48,10 +48,10 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     App/app_state.c
     App/fader_control.c
     App/midi_control.c
-    App/cv_control.c
     App/ui_control.c
     # Driver layer
     Drivers/fader_driver.c
+    Drivers/mux_driver.c
     Drivers/midi_driver.c
     Drivers/display_driver.c
     Drivers/encoder_driver.c
@@ -63,6 +63,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ResourceMgr/uart.c
     ResourceMgr/gpio.c
     ResourceMgr/timer.c
+    # Config
+    Config/config.c
     # u8g2 — ST7920 SPI full buffer mode
     Lib/u8g2/csrc/u8g2_setup.c
     Lib/u8g2/csrc/u8g2_d_setup.c
@@ -88,6 +90,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Lib/u8g2/csrc/u8x8_byte.c
     Lib/u8g2/csrc/u8x8_gpio.c
     Lib/u8g2/csrc/u8x8_cad.c
+    Lib/u8g2/csrc/u8x8_d_st7920.c
+    # NanoLog
+    Lib/NanoLog/nlog.c
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -97,6 +102,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ResourceMgr
     Config
     Lib/u8g2/csrc
+    Lib/NanoLog
 )
 
 # Add project symbols (macros)

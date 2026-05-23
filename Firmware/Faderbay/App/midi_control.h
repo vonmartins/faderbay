@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-/* TODO: declarations */
+void MidiControl_Process(void);
 
 #endif /* MIDI_CONTROL_H */
