@@ -4,7 +4,6 @@
  * ========================================================= */
 
 #include "config.h"
-#include <sys/time.h>
 
 // ========================= PRIVATE DEFINES =======================
 
@@ -34,10 +33,3 @@ DeviceConfig_t g_config = {
     },
     .active_preset = 0,
 };
-
-// Newlib syscall stub — bare metal has no real-time clock
-int _gettimeofday(struct timeval *tv, void *tz) {
-    (void)tz;
-    if (tv) { tv->tv_sec = 0; tv->tv_usec = 0; }
-    return 0;
-}

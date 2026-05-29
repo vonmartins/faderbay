@@ -63,6 +63,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ResourceMgr/uart.c
     ResourceMgr/gpio.c
     ResourceMgr/timer.c
+    ResourceMgr/syscalls.c
     # Config
     Config/config.c
     # u8g2 — ST7920 SPI full buffer mode
@@ -95,6 +96,39 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Lib/NanoLog/nlog.c
 )
 
+# Suppress all warnings in vendored libraries — they are not our code to fix
+set(VENDORED_SOURCES
+    Lib/u8g2/csrc/u8g2_setup.c
+    Lib/u8g2/csrc/u8g2_d_setup.c
+    Lib/u8g2/csrc/u8g2_d_memory.c
+    Lib/u8g2/csrc/u8g2_buffer.c
+    Lib/u8g2/csrc/u8g2_hvline.c
+    Lib/u8g2/csrc/u8g2_line.c
+    Lib/u8g2/csrc/u8g2_box.c
+    Lib/u8g2/csrc/u8g2_circle.c
+    Lib/u8g2/csrc/u8g2_font.c
+    Lib/u8g2/csrc/u8g2_fonts.c
+    Lib/u8g2/csrc/u8g2_bitmap.c
+    Lib/u8g2/csrc/u8g2_intersection.c
+    Lib/u8g2/csrc/u8g2_ll_hvline.c
+    Lib/u8g2/csrc/u8g2_message.c
+    Lib/u8g2/csrc/u8g2_polygon.c
+    Lib/u8g2/csrc/u8x8_string.c
+    Lib/u8g2/csrc/u8x8_setup.c
+    Lib/u8g2/csrc/u8x8_u8toa.c
+    Lib/u8g2/csrc/u8x8_8x8.c
+    Lib/u8g2/csrc/u8x8_display.c
+    Lib/u8g2/csrc/u8x8_fonts.c
+    Lib/u8g2/csrc/u8x8_byte.c
+    Lib/u8g2/csrc/u8x8_gpio.c
+    Lib/u8g2/csrc/u8x8_cad.c
+    Lib/u8g2/csrc/u8x8_d_st7920.c
+    Lib/NanoLog/nlog.c
+)
+set_source_files_properties(${VENDORED_SOURCES} PROPERTIES
+    COMPILE_OPTIONS "-w"
+)
+
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     .
     App
@@ -112,6 +146,20 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Remove wrong libob.a library dependency when using cpp files
 list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
+
+# Strict warning flags — do not add -fanalyzer here (HAL noise)
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -Wall -Wextra -Wpedantic
+    -Wshadow -Wundef -Wcast-align -Wpointer-arith
+    -Wstrict-prototypes -Wmissing-prototypes
+    -Wformat=2 -Wnull-dereference
+    # -Wstack-usage threshold relaxed from 512 to 1500 because NanoLog's vsnprintf
+    # legitimately uses ~1300 B. Functions exceeding 1500 B should be reviewed.
+    # ISR callbacks must never log (would push 1.3 kB onto IRQ stack).
+    -Wstack-usage=1500
+    $<$<CONFIG:Debug>:-Og -g3 -DDEBUG>
+    $<$<CONFIG:Release>:-Os -flto -DNDEBUG>
+)
 
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
