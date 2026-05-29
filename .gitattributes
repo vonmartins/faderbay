@@ -1,0 +1,15 @@
+# Normalize all text files to LF in the repo
+* text=auto eol=lf
+
+# STM32CubeIDE project files (tend to use CRLF)
+*.ioc text eol=lf
+*.mxproject text eol=lf
+
+# Binary files - no conversion
+*.pdf binary
+*.png binary
+*.jpg binary
+*.bin binary
+*.elf binary
+*.hex binary
+*.a binary
