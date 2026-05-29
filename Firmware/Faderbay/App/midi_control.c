@@ -16,6 +16,8 @@
 
 // =========================== PRIVATE DEFINES =========================
 
+#define MIDI_CTRL_DEBUG
+
 // ============================ PRIVATE TYPES ==========================
 
 // =========================== PRIVATE VARIABLES =======================
@@ -41,7 +43,9 @@ void MidiControl_Process(void) {
             if (err != FB_OK) {
                 LOGE(TAG, "SendCC failed: fader %u", i);
             } else {
+#ifdef MIDI_CTRL_DEBUG
                 LOGD(TAG, "CC ch=%u cc=%u val=%u", ch, cc, value);
+#endif
             }
         }
     }

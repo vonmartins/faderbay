@@ -15,6 +15,8 @@
 
 // =========================== PRIVATE DEFINES =========================
 
+// #define FADER_CTRL_DEBUG
+
 // ============================ PRIVATE TYPES ==========================
 
 // =========================== PRIVATE VARIABLES =======================
@@ -48,6 +50,9 @@ void FaderControl_Process(void) {
         if (diff > FADER_CHANGE_THRESHOLD) {
             s_midi[i] = midi_val;
             s_changed[i] = 1;
+#ifdef FADER_CTRL_DEBUG
+            LOGD(TAG, "fader %u = %u", (unsigned)i, (unsigned)midi_val);
+#endif
         }
     }
 }
