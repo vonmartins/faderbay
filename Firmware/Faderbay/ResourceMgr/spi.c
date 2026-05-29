@@ -28,9 +28,13 @@ fb_err_t SPI_SendBuffer(SPI_HandleTypeDef *hspi, uint8_t *buf, uint16_t len)
         LOGE(TAG, "SendBuffer: invalid param");
         return FB_ERR_INVALID_PARAM;
     }
-    if (HAL_SPI_Transmit(hspi, buf, len, 1) != HAL_OK) {
-        LOGE(TAG, "SendBuffer: HAL transmit failed");
+    if (HAL_SPI_Transmit_DMA(hspi, buf, len) != HAL_OK) {
+        LOGE(TAG, "DMA transmit failed");
         return FB_ERR_SPI;
+    }
+    // Esperar a que la transferencia termine
+    while (HAL_SPI_GetState(hspi) != HAL_SPI_STATE_READY) {
+        // busy wait — el DMA hace el trabajo, CPU puede atender ISRs
     }
     return FB_OK;
 }
