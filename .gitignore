@@ -7,16 +7,27 @@ Firmware/Faderbay/cmake/stm32cubemx/cmake_install.cmake
 __cmake_systeminformation/
 
 # KiCad auto-generated
-Hardware/Kicad/Faderbay-backups/
+Hardware/Kicad/*-backups/
 Hardware/Kicad/.history/
 Hardware/Kicad/.history_trim/
 Hardware/Kicad/fp-info-cache
-Hardware/Kicad/Faderbay_drc_violations.json
+Hardware/Kicad/*_drc_violations.json
 Hardware/Kicad/ERC.rpt
 Hardware/Kicad/freerouting.ses
-Hardware/Kicad/Faderbay.ses
-Hardware/Kicad/Faderbay.frb
+Hardware/Kicad/*.ses
+Hardware/Kicad/*.frb
 Hardware/Kicad/*.bak
+Hardware/Kicad/*.kicad_prl
+Hardware/Kicad/*.net
+Hardware/Kicad/*.dsn
+Hardware/Kicad/*.rules
+Hardware/Kicad/*_BOM.csv
+Hardware/Kicad/*_BOM.json
+Hardware/Kicad/fabrication-toolkit-options.json
+Hardware/Kicad/*.stp
+
+# Generated archives
+faderbay_sources.zip
 
 # Manual PCB backups
 Hardware/Faderbay_backup_*.kicad_pcb
