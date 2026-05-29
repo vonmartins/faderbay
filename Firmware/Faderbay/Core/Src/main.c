@@ -449,7 +449,7 @@ static void Device_Init(void) {
 
     // Drivers
     MidiDriver_Init(&huart5);
-    ButtonDriver_Init();
+    ButtonDriver_Init(NULL, 0);  /* NULL → use built-in Faderbay defaults */
     EncoderDriver_Init(&htim3);
     FaderDriver_Init(&hadc1);
     DisplayDriver_Init(&hspi1);
