@@ -48,3 +48,16 @@ fb_err_t ADC_GetValue(ADC_HandleTypeDef *hadc, uint32_t *value)
     *value = HAL_ADC_GetValue(hadc);
     return FB_OK;
 }
+
+fb_err_t ADC_StartConversionDMA(ADC_HandleTypeDef *hadc, uint32_t *buffer, uint32_t length)
+{
+    if (hadc == NULL || buffer == NULL || length == 0u) {
+        LOGE(TAG, "StartConversionDMA: invalid param");
+        return FB_ERR_INVALID_PARAM;
+    }
+    if (HAL_ADC_Start_DMA(hadc, buffer, length) != HAL_OK) {
+        LOGE(TAG, "StartConversionDMA: HAL start failed");
+        return FB_ERR_ADC;
+    }
+    return FB_OK;
+}

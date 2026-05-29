@@ -14,6 +14,22 @@
 #define ADC_MAX_REAL            3890
 #define FADER_CHANGE_THRESHOLD  1
 
+#define FADER_FILTER_SHIFT      3    /* IIR: y += (x - y) >> shift; shift=3 → ~Fs/16 cutoff */
+#define FADER_MUX_SETTLE_US     10   /* µs to wait after MUX switch before sampling */
+#define FADER_ADC_STALL_MS      50   /* task ticks before watchdog restarts ADC cycle */
+
+#define ENCODER_COUNTS_PER_DETENT   4  /* quadrature counts per mechanical detent (TI1+TI2 mode) */
+#define ENCODER_ACCEL_ENABLE        1  /* 0 = disable velocity acceleration */
+#define ENCODER_ACCEL_FAST_MS       20 /* Δt below this → fast multiplier */
+#define ENCODER_ACCEL_MED_MS        50 /* Δt below this → medium multiplier */
+#define ENCODER_ACCEL_FAST_MULT     4  /* multiplier when spinning fast */
+#define ENCODER_ACCEL_MED_MULT      2  /* multiplier when spinning at medium speed */
+
+#define BUTTON_DEBOUNCE_SAMPLES   2   /* consecutive equal readings to confirm state change */
+#define BUTTON_LONG_PRESS_MS      500 /* ms held before BTN_EVT_LONG_PRESS fires */
+#define BUTTON_DOUBLE_CLICK_MS    300 /* ms window after release to detect second press */
+#define BUTTON_EVENT_QUEUE_SIZE   16  /* ring-buffer depth for pending button events */
+
 #define BTN_MODE                0
 #define BTN_SELECT              1
 #define BTN_BACK                2

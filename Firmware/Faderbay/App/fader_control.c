@@ -21,8 +21,8 @@
 
 static const char *TAG = "FADER_CTRL";
 
-static uint8_t s_midi[16];
-static uint8_t s_changed[16];
+static uint8_t s_midi[NUM_FADERS];
+static uint8_t s_changed[NUM_FADERS];
 
 // ========================= PRIVATE FUNC. DECL. =======================
 
@@ -39,8 +39,9 @@ fb_err_t FaderControl_Init(void) {
 
 void FaderControl_Process(void) {
     for (uint8_t i = 0; i < NUM_FADERS; i++) {
-        uint16_t raw = FaderDriver_GetRaw(i);
-        uint8_t midi_val = (uint8_t)((raw * 127) / ADC_MAX_REAL);
+        uint16_t raw = FaderDriver_GetFiltered(i);
+        if (raw > (uint16_t)ADC_MAX_REAL) { raw = (uint16_t)ADC_MAX_REAL; }
+        uint8_t midi_val = (uint8_t)(((uint32_t)raw * 127u) / (uint32_t)ADC_MAX_REAL);
         uint8_t diff = (midi_val > s_midi[i]) ?
                        (midi_val - s_midi[i]) :
                        (s_midi[i] - midi_val);
