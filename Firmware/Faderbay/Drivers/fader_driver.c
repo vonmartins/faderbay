@@ -98,8 +98,11 @@ static void FaderDriver_StartCycle(void);
  * Maximum ISR hold time: s_settle_cycles cycles (≤ 840 @ 84 MHz, 10 µs). */
 static void FaderMux_SettleDelay(void)
 {
-    uint32_t start = DWT->CYCCNT;
-    while ((DWT->CYCCNT - start) < s_settle_cycles) {}
+    // uint32_t start = DWT->CYCCNT;
+    // while ((DWT->CYCCNT - start) < s_settle_cycles) {}
+    for (volatile uint32_t i = 0; i < 200; i++) {
+        __NOP();
+    }
 }
 
 /* Select MUX channel 0, wait settling, kick off first DMA conversion.
