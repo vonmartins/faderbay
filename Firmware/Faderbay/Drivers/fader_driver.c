@@ -161,6 +161,15 @@ fb_err_t FaderDriver_Init(ADC_HandleTypeDef *hadc)
     /* Arm the first conversion; subsequent ones self-chain via callback. */
     FaderDriver_StartCycle();
 
+    /* Wait for the first scans to populate s_raw[], then prime the IIR
+     * filter with actual fader positions. Otherwise the filter would
+     * ramp from 0 over ~100 ms and generate spurious MIDI on boot.
+     * HAL_Delay is acceptable here because the scheduler has not started yet. */
+    HAL_Delay(20);
+    for (uint8_t i = 0; i < NUM_FADERS; i++) {
+        s_filtered[i] = (int32_t)s_raw[i];
+    }
+
     LOGI(TAG, "Init OK");
     return FB_OK;
 }
