@@ -118,7 +118,7 @@ void UIControl_Process(void) {
         case UI_MODE_PERFORMANCE:
             while (ButtonDriver_PollEvent(&evt)) {
                 if (evt.type == BTN_EVT_PRESSED && evt.index == BTN_MODE) {
-                    LOGI(TAG, "State -> EDITING");
+                    LOGD(TAG, "State -> EDITING");
                     AppState_Set(UI_MODE_EDITING);
                 }
             }
@@ -136,10 +136,10 @@ void UIControl_Process(void) {
                 if (evt.type != BTN_EVT_PRESSED) continue;
                 if (evt.index == BTN_SELECT) {
                     s_config_backup = g_config.faders[s_selected_fader];
-                    LOGI(TAG, "State -> CONFIG");
+                    LOGD(TAG, "State -> CONFIG");
                     AppState_Set(UI_MODE_CONFIG);
                 } else if (evt.index == BTN_BACK) {
-                    LOGI(TAG, "State -> PERFORMANCE");
+                    LOGD(TAG, "State -> PERFORMANCE");
                     AppState_Set(UI_MODE_PERFORMANCE);
                 }
             }
@@ -154,11 +154,11 @@ void UIControl_Process(void) {
                 if (evt.index == BTN_PARAM) {
                     s_selected_param = (s_selected_param + 1) % 3;
                 } else if (evt.index == BTN_SELECT) {
-                    LOGI(TAG, "State -> PERFORMANCE");
+                    LOGD(TAG, "State -> PERFORMANCE");
                     AppState_Set(UI_MODE_PERFORMANCE);
                 } else if (evt.index == BTN_BACK) {
                     g_config.faders[s_selected_fader] = s_config_backup;
-                    LOGI(TAG, "State -> EDITING");
+                    LOGD(TAG, "State -> EDITING");
                     AppState_Set(UI_MODE_EDITING);
                 }
             }

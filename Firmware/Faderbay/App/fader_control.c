@@ -15,7 +15,7 @@
 
 // =========================== PRIVATE DEFINES =========================
 
-// #define FADER_CTRL_DEBUG
+#define FADER_CTRL_DEBUG
 
 // ============================ PRIVATE TYPES ==========================
 
