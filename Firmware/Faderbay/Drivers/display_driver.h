@@ -23,6 +23,4 @@ void DisplayDriver_DrawFrame(uint8_t x, uint8_t y, uint8_t w, uint8_t h);
 
 void DisplayDriver_Flush(void);
 
-void DisplayDriver_TestPattern(void);
-
 #endif /* DISPLAY_DRIVER_H */
