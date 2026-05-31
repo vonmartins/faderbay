@@ -85,6 +85,7 @@ static const char *TAG = "BTN_DRV";
 
 static BtnCtx_t s_ctx[NUM_BUTTONS];
 static uint8_t  s_btn_count;
+static uint16_t s_warmup_ticks;
 
 static ButtonEvent_t s_eq_buf[BUTTON_EVENT_QUEUE_SIZE];
 static uint8_t       s_eq_head;
@@ -95,10 +96,10 @@ static uint8_t       s_eq_count;
  * Active-low (external pull-up resistors on PCB).
  * Double-click disabled by default to avoid the inherent latency it adds. */
 static const ButtonConfig_t s_default_configs[NUM_BUTTONS] = {
-    { BTN_1_GPIO_Port, BTN_1_Pin, true, BUTTON_LONG_PRESS_MS, false },
-    { BTN_2_GPIO_Port, BTN_2_Pin, true, BUTTON_LONG_PRESS_MS, false },
-    { BTN_3_GPIO_Port, BTN_3_Pin, true, BUTTON_LONG_PRESS_MS, false },
-    { BTN_4_GPIO_Port, BTN_4_Pin, true, BUTTON_LONG_PRESS_MS, false },
+    { BTN_1_GPIO_Port, BTN_1_Pin, false, BUTTON_LONG_PRESS_MS, false },
+    { BTN_2_GPIO_Port, BTN_2_Pin, false, BUTTON_LONG_PRESS_MS, false },
+    { BTN_3_GPIO_Port, BTN_3_Pin, false, BUTTON_LONG_PRESS_MS, false },
+    { BTN_4_GPIO_Port, BTN_4_Pin, false, BUTTON_LONG_PRESS_MS, false },
 };
 
 // ========================= PRIVATE FUNC. DECL. =======================
@@ -238,6 +239,7 @@ fb_err_t ButtonDriver_Init(const ButtonConfig_t *configs, uint8_t count)
     s_eq_tail  = 0;
     s_eq_count = 0;
     s_btn_count = n;
+    s_warmup_ticks = 0;
 
     for (uint8_t i = 0; i < n; i++) {
         s_ctx[i].cfg   = src[i];
@@ -254,6 +256,10 @@ fb_err_t ButtonDriver_Init(const ButtonConfig_t *configs, uint8_t count)
 
 void ButtonDriver_Process(void)
 {
+    if (s_warmup_ticks < BUTTON_WARMUP_TICKS) {
+        s_warmup_ticks++;
+        return;
+    }
     for (uint8_t i = 0; i < s_btn_count; i++) {
         process_button(i);
     }

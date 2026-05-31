@@ -11,7 +11,7 @@
 #define NUM_PRESETS             16
 #define SCH_MAX_TASKS           10u
 
-#define ADC_MAX_REAL            3890
+#define ADC_MAX_REAL            4000   /* was 3890; some faders need higher cap to reach 127 */
 #define FADER_CHANGE_THRESHOLD  1
 
 #define FADER_FILTER_SHIFT      3    /* IIR: y += (x - y) >> shift; shift=3 → ~Fs/16 cutoff */
@@ -25,6 +25,7 @@
 #define ENCODER_ACCEL_FAST_MULT     4  /* multiplier when spinning fast */
 #define ENCODER_ACCEL_MED_MULT      2  /* multiplier when spinning at medium speed */
 
+#define BUTTON_WARMUP_TICKS      10   /* discard first N ticks after Init to avoid spurious events from GPIO glitches at boot (100 ms @ PERIOD_BUTTON_DRIVER=10) */
 #define BUTTON_DEBOUNCE_SAMPLES   2   /* consecutive equal readings to confirm state change */
 #define BUTTON_LONG_PRESS_MS      500 /* ms held before BTN_EVT_LONG_PRESS fires */
 #define BUTTON_DOUBLE_CLICK_MS    300 /* ms window after release to detect second press */
