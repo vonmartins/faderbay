@@ -36,6 +36,8 @@
 #define BTN_BACK                2
 #define BTN_PARAM               3
 
+#define UART_TX_RING_SIZE     128u  /* MIDI TX ring buffer size in bytes (must be power of 2) */
+
 #define MIDI_DEFAULT_CHANNEL    1
 #define MIDI_BASE_CC            7
 
