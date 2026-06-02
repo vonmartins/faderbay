@@ -19,32 +19,29 @@
 
 static const char *TAG = "MIDI_DRV";
 
-static UART_HandleTypeDef * s_huart;
-
 // ========================= PRIVATE FUNC. DECL. =======================
-
-static fb_err_t send_message(uint8_t *msg, uint8_t len);
 
 // =========================== PRIVATE FUNCTIONS =======================
 
-static fb_err_t send_message(uint8_t *msg, uint8_t len) {
-    if (msg == NULL || len == 0) return FB_ERR_INVALID_PARAM;
-    return UART_SendBuffer(s_huart, msg, len);
-}
-
 // =========================== PUBLIC FUNCTIONS ========================
 
-fb_err_t MidiDriver_Init(UART_HandleTypeDef *huart) {
+fb_err_t MidiDriver_Init(UART_HandleTypeDef *huart)
+{
     if (huart == NULL) {
         LOGE(TAG, "Init failed: null UART handle");
         return FB_ERR_INVALID_PARAM;
     }
-    s_huart = huart;
+    fb_err_t err = UART_TxInit_DMA(huart);
+    if (err != FB_OK) {
+        LOGE(TAG, "Init failed: DMA init err %d", err);
+        return err;
+    }
     LOGI(TAG, "Init OK");
     return FB_OK;
 }
 
-fb_err_t MidiDriver_SendCC(uint8_t channel, uint8_t cc, uint8_t value) {
+fb_err_t MidiDriver_SendCC(uint8_t channel, uint8_t cc, uint8_t value)
+{
     if (channel < 1 || channel > 16) {
         LOGE(TAG, "SendCC: invalid channel %u", channel);
         return FB_ERR_INVALID_PARAM;
@@ -59,9 +56,13 @@ fb_err_t MidiDriver_SendCC(uint8_t channel, uint8_t cc, uint8_t value) {
     msg[1] = cc;
     msg[2] = value;
 
-    fb_err_t err = send_message(msg, 3);
+    fb_err_t err = UART_TxSend(msg, 3);
+    if (err == FB_ERR_NOT_READY) {
+        return FB_ERR_NOT_READY;
+    }
     if (err != FB_OK) {
         LOGE(TAG, "SendCC: UART send failed");
+        return FB_ERR_UART;
     }
-    return err;
+    return FB_OK;
 }
