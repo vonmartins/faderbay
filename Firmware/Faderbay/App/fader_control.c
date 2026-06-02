@@ -71,3 +71,13 @@ uint8_t FaderControl_HasChanged(uint8_t index) {
         return 0;
     }
 }
+
+uint8_t FaderControl_HasChanged_Peek(uint8_t index) {
+    if (index >= NUM_FADERS) return 0;
+    return s_changed[index];
+}
+
+void FaderControl_AckChange(uint8_t index) {
+    if (index >= NUM_FADERS) return;
+    s_changed[index] = 0;
+}
