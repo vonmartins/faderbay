@@ -487,13 +487,16 @@ static void Device_Init(void) {
     UIControl_Init();
 
     // Scheduler tasks
-    Scheduler_RegisterTask(FaderDriver_Process,   PERIOD_FADER_DRIVER);
-    Scheduler_RegisterTask(EncoderDriver_Process, PERIOD_ENCODER_DRIVER);
-    Scheduler_RegisterTask(FaderControl_Process,  PERIOD_FADER_CONTROL);
-    Scheduler_RegisterTask(MidiControl_Process,   PERIOD_MIDI_CONTROL);
-    Scheduler_RegisterTask(ButtonDriver_Process,  PERIOD_BUTTON_DRIVER);
-    Scheduler_RegisterTask(UIControl_Process,     PERIOD_UI_CONTROL);
-    Scheduler_RegisterTask(DisplayDriver_Flush,   PERIOD_DISPLAY_FLUSH);
+    Scheduler_RegisterTask("FaderDriver",   FaderDriver_Process,   PERIOD_FADER_DRIVER);
+    Scheduler_RegisterTask("EncoderDriver", EncoderDriver_Process, PERIOD_ENCODER_DRIVER);
+    Scheduler_RegisterTask("FaderControl",  FaderControl_Process,  PERIOD_FADER_CONTROL);
+    Scheduler_RegisterTask("MidiControl",   MidiControl_Process,   PERIOD_MIDI_CONTROL);
+    Scheduler_RegisterTask("ButtonDriver",  ButtonDriver_Process,  PERIOD_BUTTON_DRIVER);
+    Scheduler_RegisterTask("UIControl",     UIControl_Process,     PERIOD_UI_CONTROL);
+    Scheduler_RegisterTask("DisplayFlush",  DisplayDriver_Flush,   PERIOD_DISPLAY_FLUSH);
+#if SCHEDULER_AUTODUMP_ENABLE
+    Scheduler_RegisterTask("SchedStats",    Scheduler_DumpStats,   SCHEDULER_AUTODUMP_PERIOD_MS);
+#endif
 }
 /* USER CODE END 4 */
 

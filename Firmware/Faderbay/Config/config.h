@@ -41,6 +41,11 @@
 #define MIDI_DEFAULT_CHANNEL    1
 #define MIDI_BASE_CC            7
 
+// Scheduler profiling
+#define SCHEDULER_PROFILING_ENABLE   1  /* set to 0 to remove DWT measurement overhead */
+#define SCHEDULER_AUTODUMP_ENABLE    1
+#define SCHEDULER_AUTODUMP_PERIOD_MS 30000
+
 // Scheduler task periods (ms)
 #define PERIOD_FADER_DRIVER       1
 #define PERIOD_ENCODER_DRIVER     5

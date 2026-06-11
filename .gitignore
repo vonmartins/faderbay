@@ -32,12 +32,19 @@ Hardware/Kicad/*_BOM.json
 Hardware/Kicad/fabrication-toolkit-options.json
 Hardware/Kicad/*.stp
 
+# Manual PCB backups
+Hardware/Faderbay_backup_*.kicad_pcb
+
+# Docs
+Hardware/Documentation
+
 # Generated archives
 faderbay_sources.zip
 
-# Manual PCB backups
-Hardware/Faderbay_backup_*.kicad_pcb
+
 
 # Editor / tools
 .claude/
 chat.text
+
+*.zip

@@ -1,0 +1,496 @@
+{
+  "board": "C:\\Development\\Projects\\faderbay\\Hardware\\Kicad\\Faderbay.kicad_pcb",
+  "timestamp": "2026-05-06T23:33:33",
+  "total_violations": 48,
+  "violation_counts": {
+    "lib_footprint_mismatch": 7,
+    "lib_footprint_issues": 41
+  },
+  "severity_counts": {
+    "error": 0,
+    "warning": 48,
+    "info": 0
+  },
+  "violations": [
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'PinSocket_2x05_P1.27mm_Vertical_SMD' no coincide con la copia en la biblioteca 'Connector_PinSocket_1.27mm'",
+      "location": {
+        "x": 56.2,
+        "y": -38.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 159.5,
+        "y": -59.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 3.0025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -93.85,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 78.0025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -115.1,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 98.05,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 90.0,
+        "y": -50.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 33.4,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 28.0025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 54.65,
+        "y": -26.15,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 12.1,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'R_0402_1005Metric' no coincide con la copia en la biblioteca 'Resistor_SMD'",
+      "location": {
+        "x": 27.99,
+        "y": -37.75,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -34.4975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 102.5,
+        "y": -50.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -21.9975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'C_0402_1005Metric' no coincide con la copia en la biblioteca 'Capacitor_SMD'",
+      "location": {
+        "x": 33.25,
+        "y": -41.75,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -136.35,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -30.4,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -71.9975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 76.9589,
+        "y": -50.122,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 53.0025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 161.8,
+        "y": -26.15,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 90.5025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 115.9149,
+        "y": -50.122,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -59.4975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -157.65,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 75.9,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -134.55,
+        "y": -50.7,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 65.5025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 140.55,
+        "y": -26.15,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 40.5025,
+        "y": -68.368,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -72.95,
+        "y": -26.15,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -46.9975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 173.23,
+        "y": -70.225,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'MountingHole_3.2mm_M3' no coincide con la copia en la biblioteca 'MountingHole'",
+      "location": {
+        "x": 154.0,
+        "y": -47.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 103.0025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'C_0402_1005Metric' no coincide con la copia en la biblioteca 'Capacitor_SMD'",
+      "location": {
+        "x": 39.25,
+        "y": -50.75,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 15.5025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'R_0402_1005Metric' no coincide con la copia en la biblioteca 'Resistor_SMD'",
+      "location": {
+        "x": 25.0,
+        "y": -36.5,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -9.4975,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_mismatch",
+      "severity": "warning",
+      "message": "La huella 'C_0402_1005Metric' no coincide con la copia en la biblioteca 'Capacitor_SMD'",
+      "location": {
+        "x": -169.25,
+        "y": -19.27,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 135.5,
+        "y": -42.75,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 119.3,
+        "y": -26.15,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -51.2,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": 118.5025,
+        "y": -68.432,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -9.15,
+        "y": -26.25,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "La biblioteca de huellas 'footprints' no est\u00e1 habilitada en la configuraci\u00f3n actual",
+      "location": {
+        "x": -84.5375,
+        "y": -68.5,
+        "unit": "mm"
+      }
+    }
+  ]
+}
