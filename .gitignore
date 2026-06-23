@@ -13,8 +13,8 @@ __cmake_systeminformation/
 
 # KiCad auto-generated
 Hardware/Kicad/*-backups/
-Hardware/Kicad/.history/
-Hardware/Kicad/.history_trim/
+Hardware/Kicad/**/.history/
+Hardware/Kicad/**/.history_trim/
 Hardware/Kicad/fp-info-cache
 Hardware/Kicad/*_drc_violations.json
 Hardware/Kicad/ERC.rpt
