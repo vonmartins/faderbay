@@ -48,3 +48,6 @@ faderbay_sources.zip
 chat.text
 
 *.zip
+
+# Python venv (MidiDecoder tool)
+.venv/
