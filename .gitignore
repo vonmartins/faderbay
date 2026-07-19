@@ -51,3 +51,6 @@ chat.text
 
 # Python venv (MidiDecoder tool)
 .venv/
+
+# FreeCAD backups
+*.FCBak
