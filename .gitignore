@@ -23,7 +23,7 @@ Hardware/Kicad/*.ses
 Hardware/Kicad/*.frb
 Hardware/Kicad/*.bak
 Hardware/Kicad/*-bak
-Hardware/Kicad/*.kicad_prl
+Hardware/Kicad/**/*.kicad_prl
 Hardware/Kicad/*.net
 Hardware/Kicad/*.dsn
 Hardware/Kicad/*.rules
