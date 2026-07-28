@@ -45,6 +45,7 @@ faderbay_sources.zip
 
 # Editor / tools
 .claude/
+.vscode/
 chat.text
 
 *.zip
@@ -54,3 +55,6 @@ chat.text
 
 # FreeCAD backups
 *.FCBak
+
+# CAD generated outputs (STEP exports, caches)
+CAD/output/
