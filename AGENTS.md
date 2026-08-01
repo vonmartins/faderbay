@@ -6,16 +6,13 @@
 ## What this is
 
 Faderbay is a **MIDI/CV fader-bay controller** (standard potentiometer faders,
-not motorized). This repo holds the
-firmware plus hardware (KiCad), CAD, and documentation. The firmware targets an
-**STM32F405 (Cortex-M4F)** and is the only part that builds.
-
-Status: firmware **in progress / not finished** (see `README.md`).
+not motorized). **This repo holds only hardware (KiCad), CAD, and documentation.**
+The firmware (STM32F405, Cortex-M4F) lives in a **separate repository** and is
+developed there — it is not part of this repo.
 
 ## Repository layout
 
 ```
-Firmware/Faderbay/     ← the firmware (all build/dev work happens here)
 Hardware/Kicad/         ← PCB, schematics (rev0.1)
 CAD/                    ← mechanical / enclosure (untracked WIP)
 Documentation/          ← datasheets, pinout planning, spec sheets
@@ -24,59 +21,8 @@ Legacy/                 ← old material, don't build on it
 Tools/                  ← misc helper files (e.g. clickup-ids.md)
 ```
 
-## Firmware architecture (`Firmware/Faderbay/`)
-
-Layered, **cooperative scheduler** — no RTOS. `main.c` runs CubeMX peripheral
-init, then `Device_Init()`, then a bare `while(1) { Scheduler_Run(); }`.
-Each module exposes an `*_Init()` and a periodic `*_Process()` registered with
-`Scheduler_RegisterTask(name, fn, period_ms)`.
-
-Layers (top → bottom):
-
-- **App/** — application logic: `app_state`, `fader_control`, `midi_control`,
-  `ui_control`. This is where behavior lives.
-- **Drivers/** — device drivers: `fader`, `mux`, `midi`, `display`, `encoder`,
-  `button`. Hardware-facing but peripheral-agnostic where possible.
-- **ResourceMgr/** — MCU peripheral wrappers: `adc`, `spi`, `uart`, `gpio`,
-  `timer`, `scheduler`, `syscalls`.
-- **Config/** — `config`, `faderbay_types.h` (shared enums: `fb_err_t`,
-  `FaderMode_t`, `AppState_t`).
-- **Core/**, **USB_DEVICE/** — STM32CubeMX-generated HAL + USB stack.
-  Keep edits inside the `USER CODE BEGIN/END` guards; CubeMX regenerates the rest.
-- **Lib/** — vendored git submodules:
-  - `u8g2` — display graphics (ST7920 SPI, full-buffer mode)
-  - `NanoLog` — lightweight logging over UART2 (`NLOG_UART_INIT`)
-
-Key hardware bindings (from `Device_Init`): MIDI on UART5, log on USART2,
-faders on ADC1 (DMA), display on SPI1, encoder on TIM3.
-
-## Build & flash
-
-Everything runs from `Firmware/Faderbay/`. Toolchain: **arm-none-eabi-gcc + Ninja
-+ CMake**. Flashing: **OpenOCD + ST-Link**.
-
-```bash
-cd Firmware/Faderbay
-./build.sh            # configure + build Debug → build/Debug/Faderbay.elf
-./flash.sh            # build, then openocd program/verify/reset
-```
-
-CMake presets also exist (`Debug`, `Release`) via `CMakePresets.json`.
-`compile_commands.json` is exported for **clangd** (see `.clangd`).
-
-## Conventions & gotchas
-
-- **New source files must be added to `CMakeLists.txt`** `target_sources()` — the
-  build does not glob.
-- Warnings are **strict** (`-Wall -Wextra -Wpedantic -Wshadow …`). Vendored libs
-  (`u8g2`, `NanoLog`) are compiled with `-w` on purpose — don't try to fix their
-  warnings. Our code should build clean.
-- **`-Wstack-usage=1500`**: NanoLog's `vsnprintf` alone uses ~1.3 kB.
-  **Never log from an ISR/IRQ callback** — it would push that onto the IRQ stack.
-- Submodules: run `git submodule update --init --recursive` after clone.
-- Header style: sections are marked with `// ===== INCLUDES / PUBLIC TYPES /
-  PUBLIC FUNC. DECL. =====` banners — follow the existing pattern.
-- Comments in the codebase are mixed Spanish/English; match the surrounding file.
+> Firmware is in a separate repo. Anything firmware-related (build, flash,
+> architecture, drivers) belongs there, not here.
 
 ## Commits
 

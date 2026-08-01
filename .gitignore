@@ -1,16 +1,3 @@
-# ST auto-generated libraries (HAL, CMSIS, USB Middleware)
-Firmware/Faderbay/Drivers/STM32F4xx_HAL_Driver/
-Firmware/Faderbay/Drivers/CMSIS/
-Firmware/Faderbay/Middlewares/ST/
-
-# Build outputs
-Firmware/Faderbay/build/
-Firmware/Faderbay/CMakeFiles/
-Firmware/Faderbay/CMakeCache.txt
-Firmware/Faderbay/cmake_install.cmake
-Firmware/Faderbay/cmake/stm32cubemx/cmake_install.cmake
-__cmake_systeminformation/
-
 # KiCad auto-generated
 Hardware/Kicad/*-backups/
 Hardware/Kicad/**/.history/

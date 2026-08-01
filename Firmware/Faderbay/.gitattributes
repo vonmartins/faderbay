@@ -1,9 +1,0 @@
-* text=auto eol=lf
-*.c text eol=lf
-*.h text eol=lf
-*.md text eol=lf
-*.ioc text eol=crlf
-*.ld text eol=lf
-
-# STM32 HAL vendored drivers — keep as-is to avoid diff noise on CubeMX regen
-Drivers/STM32F4xx_HAL_Driver/** -text
