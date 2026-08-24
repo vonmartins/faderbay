@@ -45,3 +45,6 @@ chat.text
 
 # CAD generated outputs (STEP exports, caches)
 CAD/output/
+
+# Datos financieros (local, no versionar)
+Finanzas/
