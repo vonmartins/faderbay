@@ -1,0 +1,297 @@
+(footprint "WQP729JH-B"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "3.5mm MONO right-angle jack con tuerca - WQP-WQP729JH-R (rojo). BORRADOR desde datasheet Qingpu - VERIFICAR 1:1 antes de fabricar. Pads 2.5x0.8. Pin1=Sleeve Pin2=Ring(13.1,-5.1) Pin3=Tip Pin4=Shunt. Panel/bushing hacia -X.")
+	(property "Reference" "REF**"
+		(at 6.5 -7.2 0)
+		(layer "F.SilkS")
+		(uuid "1316f820-c6a6-46de-835a-4001f14516ba")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "WQP729JH-B"
+		(at 6.5 7.2 0)
+		(layer "F.Fab")
+		(uuid "c42ed3a9-0674-42f1-af84-41775fee49d4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9501a9b9-fd35-44bb-a01e-705c38cb5cfe")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7e720bc6-06e3-4d7d-8970-bd473a495977")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -5.3 -3)
+		(end -5.3 3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "84e90e60-e2ae-4976-997a-66ce947eef58")
+	)
+	(fp_line
+		(start -5.3 -3)
+		(end -1.1 -3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "2ef8109f-27ec-4f32-a936-2c8eab0955fb")
+	)
+	(fp_line
+		(start -5.3 3)
+		(end -1.1 3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9effbbef-ec4f-4398-8364-fd0528a13078")
+	)
+	(fp_line
+		(start -1.05 -4.2)
+		(end -1.05 4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0ef3f274-424c-4234-8a0e-4d3917105193")
+	)
+	(fp_line
+		(start -1 4.15)
+		(end 0 4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b92a7220-608a-4355-9089-60e833c0871c")
+	)
+	(fp_line
+		(start 0 -5.15)
+		(end 11.3 -5.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "04d5ecd3-472b-41eb-9691-bfee0e8def11")
+	)
+	(fp_line
+		(start 0 -4.2)
+		(end -1 -4.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "860db0d6-1e3c-4463-acda-75798cb05cf1")
+	)
+	(fp_line
+		(start 0 5.1)
+		(end 0 -5.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "24112b51-c4de-4ce3-9e3f-2c7908f56000")
+	)
+	(fp_line
+		(start 11.3 5.1)
+		(end 0 5.1)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "88e134b4-4724-4278-8427-83ca87238da3")
+	)
+	(fp_line
+		(start 15 -5.15)
+		(end 15 -1.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e894bfa4-26ec-4e3a-88a8-7bf6402a8d6a")
+	)
+	(fp_line
+		(start 15 1.85)
+		(end 15 5.1)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7f760404-70ea-490e-844f-27834a2e1e55")
+	)
+	(fp_line
+		(start -6.9 -6.2)
+		(end 16.1 -6.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6f713124-ef19-4f26-a2e8-b41c742869f6")
+	)
+	(fp_line
+		(start -6.9 6.2)
+		(end -6.9 -6.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "852d2ee3-76ee-487e-b28f-dd08f1e9d9d8")
+	)
+	(fp_line
+		(start 16.1 -6.2)
+		(end 16.1 6.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "bad33d79-7970-4c89-b53a-0006fb501e00")
+	)
+	(fp_line
+		(start 16.1 6.2)
+		(end -6.9 6.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "10017a4b-cb50-4c5e-8e91-700f433017d5")
+	)
+	(fp_line
+		(start 0 -5.15)
+		(end 11.3 -5.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "26918055-cd76-41fa-a084-7e9c0bb48b74")
+	)
+	(fp_line
+		(start 0 5.1)
+		(end 0 -5.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1601780e-f37a-461f-b72b-9a787f019674")
+	)
+	(fp_line
+		(start 11.3 5.1)
+		(end 0 5.1)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c8480c9a-9ab1-4240-8165-6d4bf9c18abf")
+	)
+	(fp_line
+		(start 15 -5.15)
+		(end 15 -1.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "02ba35c4-4dc5-4dbe-977f-da6beb33fa8a")
+	)
+	(fp_line
+		(start 15 1.85)
+		(end 15 5.1)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "bee532b2-58dc-45f0-9b92-85ccdc401067")
+	)
+	(pad "1" thru_hole oval
+		(at 0.85 0)
+		(size 1.2 3)
+		(drill oval 0.8 2.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ed68382c-1b12-4892-a3c0-4d0c3f7f58c4")
+	)
+	(pad "2" thru_hole oval
+		(at 13.1 -5.1)
+		(size 3 1.2)
+		(drill oval 2.5 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "9cc64a99-b4d4-4d95-aa57-ec3aa57caa88")
+	)
+	(pad "3" thru_hole oval
+		(at 15 0)
+		(size 1.2 3)
+		(drill oval 0.8 2.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "627d624c-feac-4ad7-b3b1-c59c2dac7f03")
+	)
+	(pad "4" thru_hole oval
+		(at 13.1 5.1)
+		(size 3 1.2)
+		(drill oval 2.5 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "57e9e174-4431-49f8-aa0c-7201a0df669c")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dmodels/WQP729JH-B.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
